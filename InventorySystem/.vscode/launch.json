@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InventorySystemWebapp",
+            "request": "launch",
+            "mainClass": "com.app.InventorySystemWebapp",
+            "projectName": "app"
+        }
+    ]
+}
