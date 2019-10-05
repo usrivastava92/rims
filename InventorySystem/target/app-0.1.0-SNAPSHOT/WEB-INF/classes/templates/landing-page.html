@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>InventorySystem</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Inventory System</h1>
+                <br />
+                <br />
+                Click here to
+                <button id="loginButton" type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                    data-target="#loginModal">Login</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal show" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form name="loginForm" action="/auth/login">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Username:</label>
+                            <input type="text" class="form-control" name="username" >
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Password:</label>
+                            <input type="text" class="form-control" name="password" >
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="loginSubmit" type="button" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document)
+            .ready(
+                function () {
+                    $("#loginButton").click();
+
+                    $("form[name='loginForm'] button[id=loginSubmit]")
+                        .click(
+                            function (event) {
+                                event.preventDefault();
+                                var submitButton = $(this);
+                                submitButton.html('<i class="fa fa-spinner fa-spin"></i>&nbsp;Logging in..');
+                                var formElement = $("form[name='loginForm']");
+                                submitButton.attr("disabled", "disabled");
+                                var dangerMessageDiv = "<div class='alert alert-danger alert-dismissible fade show'	role='alert'>	<strong>Login Failed..!! </strong> Invalid Username or Password	<button type='button' class='close' data-dismiss='alert' aria-label='Close'> <span aria-hidden='true'>&times;</span></button></div>";
+                                $.ajax({
+                                    url: formElement
+                                        .attr('action'),
+                                    type: "POST",
+                                    data: formElement
+                                        .serialize(),
+                                    success: function (data,
+                                        status) {
+                                        if (data) {
+                                            window.location
+                                                .replace(location.pathname);
+                                        } else {
+                                            $("#loginFailedMessage").html(dangerMessageDiv);
+                                            setTimeout(function () { $("#login-modal").removeClass("shakeClass"); }, 1500);
+                                            submitButton.removeAttr("disabled");
+                                            submitButton.html('Login');
+                                        }
+                                    },
+                                    error: function (e) {
+                                        console.log("ERROR: ",
+                                            e);
+                                    },
+                                    done: function (e) {
+                                        console.log("DONE");
+                                    }
+                                });
+                            });
+                });</script>
+</body>
+
+</html>
