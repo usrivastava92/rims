@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
   <head>
     <title>Admin Dashboard HTML Template</title>
     <meta charset="utf-8">
@@ -30,7 +31,7 @@
           <a class="logo" href="index.html">
             <div class="logo-element"></div>
             <div class="logo-label">
-              Clean Admin
+              R.I.M.S
             </div>
           </a>
         </div>
@@ -128,11 +129,11 @@
                 <li>
                   <a href="#">
                     <div class="user-avatar-w">
-                      <img alt="" src="img/avatar1.jpg">
+                      <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                     </div>
                     <div class="message-content">
                       <h6 class="message-from">
-                        John Mayers
+                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                       </h6>
                       <h6 class="message-title">
                         Account Update
@@ -223,16 +224,16 @@
           <div class="logged-user-w">
             <div class="logged-user-i">
               <div class="avatar-w">
-                <img alt="" src="img/avatar1.jpg">
+                <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
               </div>
               <div class="logged-user-menu color-style-bright">
                 <div class="logged-user-avatar-info">
                   <div class="avatar-w">
-                    <img alt="" src="img/avatar1.jpg">
+                    <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                   </div>
                   <div class="logged-user-info-w">
                     <div class="logged-user-name">
-                      Maria Gomez
+                      <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                     </div>
                     <div class="logged-user-role">
                       Administrator
@@ -403,7 +404,7 @@
         -------------------->
         <div class="menu-mobile menu-activated-on-click color-scheme-dark">
           <div class="mm-logo-buttons-w">
-            <a class="mm-logo" href="index.html"><img src="img/logo.png"><span>Clean Admin</span></a>
+            <a class="mm-logo" href="index.html"><img src="img/logo.png"><span>R.I.M.S</span></a>
             <div class="mm-buttons">
               <div class="content-panel-open">
                 <div class="os-icon os-icon-grid-circles"></div>
@@ -416,11 +417,11 @@
           <div class="menu-and-user">
             <div class="logged-user-w">
               <div class="avatar-w">
-                <img alt="" src="img/avatar1.jpg">
+                <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  Maria Gomez
+                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                 </div>
                 <div class="logged-user-role">
                   Administrator
@@ -799,11 +800,11 @@
           <div class="logged-user-w avatar-inline">
             <div class="logged-user-i">
               <div class="avatar-w">
-                <img alt="" src="img/avatar1.jpg">
+                <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  Maria Gomez
+                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                 </div>
                 <div class="logged-user-role">
                   Administrator
@@ -815,11 +816,11 @@
               <div class="logged-user-menu color-style-bright">
                 <div class="logged-user-avatar-info">
                   <div class="avatar-w">
-                    <img alt="" src="img/avatar1.jpg">
+                    <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                   </div>
                   <div class="logged-user-info-w">
                     <div class="logged-user-name">
-                      Maria Gomez
+                      <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                     </div>
                     <div class="logged-user-role">
                       Administrator
@@ -863,11 +864,11 @@
                   <li>
                     <a href="#">
                       <div class="user-avatar-w">
-                        <img alt="" src="img/avatar1.jpg">
+                        <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                       </div>
                       <div class="message-content">
                         <h6 class="message-from">
-                          John Mayers
+                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                         </h6>
                         <h6 class="message-title">
                           Account Update
@@ -968,11 +969,11 @@
                   <li>
                     <a href="#">
                       <div class="user-avatar-w">
-                        <img alt="" src="img/avatar1.jpg">
+                        <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                       </div>
                       <div class="message-content">
                         <h6 class="message-from">
-                          John Mayers
+                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                         </h6>
                         <h6 class="message-title">
                           Account Update
@@ -1600,463 +1601,4 @@
                               This Month
                             </option>
                             <option>
-                              Today
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <h5 class="element-box-header">
-                        Balance History
-                      </h5>
-                      <div class="el-chart-w">
-                        <canvas data-chart-data="13,28,19,24,43,49,40,35,42,46" height="90" id="liteLineChartV2" width="300"></canvas>
-                      </div>
-                    </div>
-                  </div>
-                  <!--END - CHART-->
-                </div>
-                <div class="col-lg-5 col-xxl-6">
-                  <!--START - Money Withdraw Form-->
-                  <div class="element-wrapper">
-                    <div class="element-box">
-                      <form>
-                        <h5 class="element-box-header">
-                          Withdraw Money
-                        </h5>
-                        <div class="row">
-                          <div class="col-sm-5">
-                            <div class="form-group">
-                              <label class="lighter" for="">Select Amount</label>
-                              <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                <input class="form-control" placeholder="Enter Amount..." type="text" value="0">
-                                <div class="input-group-append">
-                                  <div class="input-group-text">
-                                    USD
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-sm-7">
-                            <div class="form-group">
-                              <label class="lighter" for="">Transfer to</label><select class="form-control">
-                                <option value="">
-                                  Citibank *6382
-                                </option>
-                                <option value="">
-                                  Chase *8372
-                                </option>
-                                <option value="">
-                                  Bank of America *7363
-                                </option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-buttons-w text-right compact">
-                          <a class="btn btn-grey" href="#"><i class="os-icon os-icon-ui-22"></i><span>Add Account</span></a><a class="btn btn-primary" href="#"><span>Transfer</span><i class="os-icon os-icon-grid-18"></i></a>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <!--END - Money Withdraw Form-->
-                </div>
-              </div>
-              <!--START - Transactions Table-->
-              <div class="element-wrapper">
-                <h6 class="element-header">
-                  Recent Transactions
-                </h6>
-                <div class="element-box-tp">
-                  <div class="table-responsive">
-                    <table class="table table-padded">
-                      <thead>
-                        <tr>
-                          <th>
-                            Status
-                          </th>
-                          <th>
-                            Date
-                          </th>
-                          <th>
-                            Description
-                          </th>
-                          <th class="text-center">
-                            Category
-                          </th>
-                          <th class="text-right">
-                            Amount
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="nowrap">
-                            <span class="status-pill smaller green"></span><span>Complete</span>
-                          </td>
-                          <td>
-                            <span>Today</span><span class="smaller lighter">1:52am</span>
-                          </td>
-                          <td class="cell-with-media">
-                            <img alt="" src="img/company1.png" style="height: 25px;"><span>Banana Shakes LLC</span>
-                          </td>
-                          <td class="text-center">
-                            <a class="badge badge-success" href="">Shopping</a>
-                          </td>
-                          <td class="text-right bolder nowrap">
-                            <span class="text-success">+ 1,250 USD</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="nowrap">
-                            <span class="status-pill smaller red"></span><span>Declined</span>
-                          </td>
-                          <td>
-                            <span>Jan 19th</span><span class="smaller lighter">3:22pm</span>
-                          </td>
-                          <td class="cell-with-media">
-                            <img alt="" src="img/company2.png" style="height: 25px;"><span>Stripe Payment Processing</span>
-                          </td>
-                          <td class="text-center">
-                            <a class="badge badge-danger" href="">Cafe</a>
-                          </td>
-                          <td class="text-right bolder nowrap">
-                            <span class="text-success">+ 952.23 USD</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="nowrap">
-                            <span class="status-pill smaller yellow"></span><span>Pending</span>
-                          </td>
-                          <td>
-                            <span>Yesterday</span><span class="smaller lighter">7:45am</span>
-                          </td>
-                          <td class="cell-with-media">
-                            <img alt="" src="img/company3.png" style="height: 25px;"><span>MailChimp Services</span>
-                          </td>
-                          <td class="text-center">
-                            <a class="badge badge-warning" href="">Restaurants</a>
-                          </td>
-                          <td class="text-right bolder nowrap">
-                            <span class="text-danger">- 320 USD</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="nowrap">
-                            <span class="status-pill smaller yellow"></span><span>Pending</span>
-                          </td>
-                          <td>
-                            <span>Jan 23rd</span><span class="smaller lighter">2:12pm</span>
-                          </td>
-                          <td class="cell-with-media">
-                            <img alt="" src="img/company1.png" style="height: 25px;"><span>Starbucks Cafe</span>
-                          </td>
-                          <td class="text-center">
-                            <a class="badge badge-primary" href="">Shopping</a>
-                          </td>
-                          <td class="text-right bolder nowrap">
-                            <span class="text-success">+ 17.99 USD</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="nowrap">
-                            <span class="status-pill smaller green"></span><span>Complete</span>
-                          </td>
-                          <td>
-                            <span>Jan 12th</span><span class="smaller lighter">9:51am</span>
-                          </td>
-                          <td class="cell-with-media">
-                            <img alt="" src="img/company4.png" style="height: 25px;"><span>Ebay Marketplace</span>
-                          </td>
-                          <td class="text-center">
-                            <a class="badge badge-danger" href="">Groceries</a>
-                          </td>
-                          <td class="text-right bolder nowrap">
-                            <span class="text-danger">- 244 USD</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="nowrap">
-                            <span class="status-pill smaller yellow"></span><span>Pending</span>
-                          </td>
-                          <td>
-                            <span>Jan 9th</span><span class="smaller lighter">12:45pm</span>
-                          </td>
-                          <td class="cell-with-media">
-                            <img alt="" src="img/company2.png" style="height: 25px;"><span>Envato Templates Inc</span>
-                          </td>
-                          <td class="text-center">
-                            <a class="badge badge-primary" href="">Business</a>
-                          </td>
-                          <td class="text-right bolder nowrap">
-                            <span class="text-success">+ 340 USD</span>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <!--END - Transactions Table--><!--------------------
-              START - Color Scheme Toggler
-              -------------------->
-              <div class="floated-colors-btn second-floated-btn">
-                <div class="os-toggler-w">
-                  <div class="os-toggler-i">
-                    <div class="os-toggler-pill"></div>
-                  </div>
-                </div>
-                <span>Dark </span><span>Colors</span>
-              </div>
-              <!--------------------
-              END - Color Scheme Toggler
-              --------------------><!--------------------
-              START - Demo Customizer
-              -------------------->
-              <div class="floated-customizer-btn third-floated-btn">
-                <div class="icon-w">
-                  <i class="os-icon os-icon-ui-46"></i>
-                </div>
-                <span>Customizer</span>
-              </div>
-              <div class="floated-customizer-panel">
-                <div class="fcp-content">
-                  <div class="close-customizer-btn">
-                    <i class="os-icon os-icon-x"></i>
-                  </div>
-                  <div class="fcp-group">
-                    <div class="fcp-group-header">
-                      Menu Settings
-                    </div>
-                    <div class="fcp-group-contents">
-                      <div class="fcp-field">
-                        <label for="">Menu Position</label><select class="menu-position-selector">
-                          <option value="left">
-                            Left
-                          </option>
-                          <option value="right">
-                            Right
-                          </option>
-                          <option value="top">
-                            Top
-                          </option>
-                        </select>
-                      </div>
-                      <div class="fcp-field">
-                        <label for="">Menu Style</label><select class="menu-layout-selector">
-                          <option value="compact">
-                            Compact
-                          </option>
-                          <option value="full">
-                            Full
-                          </option>
-                          <option value="mini">
-                            Mini
-                          </option>
-                        </select>
-                      </div>
-                      <div class="fcp-field with-image-selector-w">
-                        <label for="">With Image</label><select class="with-image-selector">
-                          <option value="yes">
-                            Yes
-                          </option>
-                          <option value="no">
-                            No
-                          </option>
-                        </select>
-                      </div>
-                      <div class="fcp-field">
-                        <label for="">Menu Color</label>
-                        <div class="fcp-colors menu-color-selector">
-                          <div class="color-selector menu-color-selector color-bright selected"></div>
-                          <div class="color-selector menu-color-selector color-dark"></div>
-                          <div class="color-selector menu-color-selector color-light"></div>
-                          <div class="color-selector menu-color-selector color-transparent"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="fcp-group">
-                    <div class="fcp-group-header">
-                      Sub Menu
-                    </div>
-                    <div class="fcp-group-contents">
-                      <div class="fcp-field">
-                        <label for="">Sub Menu Style</label><select class="sub-menu-style-selector">
-                          <option value="flyout">
-                            Flyout
-                          </option>
-                          <option value="inside">
-                            Inside/Click
-                          </option>
-                          <option value="over">
-                            Over
-                          </option>
-                        </select>
-                      </div>
-                      <div class="fcp-field">
-                        <label for="">Sub Menu Color</label>
-                        <div class="fcp-colors">
-                          <div class="color-selector sub-menu-color-selector color-bright selected"></div>
-                          <div class="color-selector sub-menu-color-selector color-dark"></div>
-                          <div class="color-selector sub-menu-color-selector color-light"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="fcp-group">
-                    <div class="fcp-group-header">
-                      Other Settings
-                    </div>
-                    <div class="fcp-group-contents">
-                      <div class="fcp-field">
-                        <label for="">Full Screen?</label><select class="full-screen-selector">
-                          <option value="yes">
-                            Yes
-                          </option>
-                          <option value="no">
-                            No
-                          </option>
-                        </select>
-                      </div>
-                      <div class="fcp-field">
-                        <label for="">Show Top Bar</label><select class="top-bar-visibility-selector">
-                          <option value="yes">
-                            Yes
-                          </option>
-                          <option value="no">
-                            No
-                          </option>
-                        </select>
-                      </div>
-                      <div class="fcp-field">
-                        <label for="">Above Menu?</label><select class="top-bar-above-menu-selector">
-                          <option value="yes">
-                            Yes
-                          </option>
-                          <option value="no">
-                            No
-                          </option>
-                        </select>
-                      </div>
-                      <div class="fcp-field">
-                        <label for="">Top Bar Color</label>
-                        <div class="fcp-colors">
-                          <div class="color-selector top-bar-color-selector color-bright selected"></div>
-                          <div class="color-selector top-bar-color-selector color-dark"></div>
-                          <div class="color-selector top-bar-color-selector color-light"></div>
-                          <div class="color-selector top-bar-color-selector color-transparent"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------
-              END - Demo Customizer
-              --------------------><!--------------------
-              START - Chat Popup Box
-              -------------------->
-              <div class="floated-chat-btn">
-                <i class="os-icon os-icon-mail-07"></i><span>Demo Chat</span>
-              </div>
-              <div class="floated-chat-w">
-                <div class="floated-chat-i">
-                  <div class="chat-close">
-                    <i class="os-icon os-icon-close"></i>
-                  </div>
-                  <div class="chat-head">
-                    <div class="user-w with-status status-green">
-                      <div class="user-avatar-w">
-                        <div class="user-avatar">
-                          <img alt="" src="img/avatar1.jpg">
-                        </div>
-                      </div>
-                      <div class="user-name">
-                        <h6 class="user-title">
-                          John Mayers
-                        </h6>
-                        <div class="user-role">
-                          Account Manager
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="chat-messages">
-                    <div class="message">
-                      <div class="message-content">
-                        Hi, how can I help you?
-                      </div>
-                    </div>
-                    <div class="date-break">
-                      Mon 10:20am
-                    </div>
-                    <div class="message">
-                      <div class="message-content">
-                        Hi, my name is Mike, I will be happy to assist you
-                      </div>
-                    </div>
-                    <div class="message self">
-                      <div class="message-content">
-                        Hi, I tried ordering this product and it keeps showing me error code.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="chat-controls">
-                    <input class="message-input" placeholder="Type your message here..." type="text">
-                    <div class="chat-extra">
-                      <a href="#"><span class="extra-tooltip">Attach Document</span><i class="os-icon os-icon-documents-07"></i></a><a href="#"><span class="extra-tooltip">Insert Photo</span><i class="os-icon os-icon-others-29"></i></a><a href="#"><span class="extra-tooltip">Upload Video</span><i class="os-icon os-icon-ui-51"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------
-              END - Chat Popup Box
-              -------------------->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="display-type"></div>
-    </div>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/chart.js/dist/Chart.min.js"></script>
-    <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-    <script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
-    <script src="bower_components/ckeditor/ckeditor.js"></script>
-    <script src="bower_components/bootstrap-validator/dist/validator.min.js"></script>
-    <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
-    <script src="bower_components/dropzone/dist/dropzone.js"></script>
-    <script src="bower_components/editable-table/mindmup-editabletable.js"></script>
-    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="bower_components/tether/dist/js/tether.min.js"></script>
-    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
-    <script src="bower_components/bootstrap/js/dist/util.js"></script>
-    <script src="bower_components/bootstrap/js/dist/alert.js"></script>
-    <script src="bower_components/bootstrap/js/dist/button.js"></script>
-    <script src="bower_components/bootstrap/js/dist/carousel.js"></script>
-    <script src="bower_components/bootstrap/js/dist/collapse.js"></script>
-    <script src="bower_components/bootstrap/js/dist/dropdown.js"></script>
-    <script src="bower_components/bootstrap/js/dist/modal.js"></script>
-    <script src="bower_components/bootstrap/js/dist/tab.js"></script>
-    <script src="bower_components/bootstrap/js/dist/tooltip.js"></script>
-    <script src="bower_components/bootstrap/js/dist/popover.js"></script>
-    <script src="js/demo_customizer.js?version=4.4.0"></script>
-    <script src="js/main.js?version=4.4.0"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-XXXXXXX-9', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </body>
-</html>
+                     

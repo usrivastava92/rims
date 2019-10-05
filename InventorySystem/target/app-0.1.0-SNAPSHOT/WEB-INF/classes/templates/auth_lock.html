@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
   <head>
     <title>Admin Dashboard HTML Template</title>
     <meta charset="utf-8">
@@ -31,10 +32,10 @@
         </h5>
         <div class="logged-user-w">
           <div class="avatar-w">
-            <img alt="" src="img/avatar1.jpg">
+            <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
           </div>
           <div class="logged-user-name">
-            Maria Gomez
+            <span class="text-capitalize" sec:authentication="name">Anonymous</span>
           </div>
           <div class="logged-user-role">
             Administrator

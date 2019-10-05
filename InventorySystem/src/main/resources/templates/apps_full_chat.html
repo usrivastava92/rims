@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
   <head>
     <title>Admin Dashboard HTML Template</title>
     <meta charset="utf-8">
@@ -152,7 +153,7 @@
         -------------------->
         <div class="menu-mobile menu-activated-on-click color-scheme-dark">
           <div class="mm-logo-buttons-w">
-            <a class="mm-logo" href="index.html"><img src="img/logo.png"><span>Clean Admin</span></a>
+            <a class="mm-logo" href="index.html"><img src="img/logo.png"><span>R.I.M.S</span></a>
             <div class="mm-buttons">
               <div class="content-panel-open">
                 <div class="os-icon os-icon-grid-circles"></div>
@@ -165,11 +166,11 @@
           <div class="menu-and-user">
             <div class="logged-user-w">
               <div class="avatar-w">
-                <img alt="" src="img/avatar1.jpg">
+                <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  Maria Gomez
+                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                 </div>
                 <div class="logged-user-role">
                   Administrator
@@ -549,18 +550,18 @@
             <a class="logo" href="index.html">
               <div class="logo-element"></div>
               <div class="logo-label">
-                Clean Admin
+                R.I.M.S
               </div>
             </a>
           </div>
           <div class="logged-user-w avatar-inline">
             <div class="logged-user-i">
               <div class="avatar-w">
-                <img alt="" src="img/avatar1.jpg">
+                <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  Maria Gomez
+                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                 </div>
                 <div class="logged-user-role">
                   Administrator
@@ -572,11 +573,11 @@
               <div class="logged-user-menu color-style-bright">
                 <div class="logged-user-avatar-info">
                   <div class="avatar-w">
-                    <img alt="" src="img/avatar1.jpg">
+                    <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                   </div>
                   <div class="logged-user-info-w">
                     <div class="logged-user-name">
-                      Maria Gomez
+                      <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                     </div>
                     <div class="logged-user-role">
                       Administrator
@@ -1109,11 +1110,11 @@
                     <li>
                       <a href="#">
                         <div class="user-avatar-w">
-                          <img alt="" src="img/avatar1.jpg">
+                          <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                         </div>
                         <div class="message-content">
                           <h6 class="message-from">
-                            John Mayers
+                            <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                           </h6>
                           <h6 class="message-title">
                             Account Update
@@ -1204,16 +1205,16 @@
               <div class="logged-user-w">
                 <div class="logged-user-i">
                   <div class="avatar-w">
-                    <img alt="" src="img/avatar1.jpg">
+                    <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                   </div>
                   <div class="logged-user-menu color-style-bright">
                     <div class="logged-user-avatar-info">
                       <div class="avatar-w">
-                        <img alt="" src="img/avatar1.jpg">
+                        <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                       </div>
                       <div class="logged-user-info-w">
                         <div class="logged-user-name">
-                          Maria Gomez
+                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                         </div>
                         <div class="logged-user-role">
                           Administrator
@@ -1280,14 +1281,14 @@
                     <div class="user-list">
                       <div class="user-w">
                         <div class="avatar with-status status-green">
-                          <img alt="" src="img/avatar1.jpg">
+                          <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                         </div>
                         <div class="user-info">
                           <div class="user-date">
                             12 min
                           </div>
                           <div class="user-name">
-                            John Mayers
+                            <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                           </div>
                           <div class="last-message">
                             What is going on, are we...
@@ -1328,7 +1329,7 @@
                       </div>
                       <div class="user-w">
                         <div class="avatar with-status status-green">
-                          <img alt="" src="img/avatar1.jpg">
+                          <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                         </div>
                         <div class="user-info">
                           <div class="user-date">
@@ -1360,7 +1361,7 @@
                       </div>
                       <div class="user-w">
                         <div class="avatar with-status status-green">
-                          <img alt="" src="img/avatar1.jpg">
+                          <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                         </div>
                         <div class="user-info">
                           <div class="user-date">
@@ -1379,7 +1380,7 @@
                   <div class="full-chat-middle">
                     <div class="chat-head">
                       <div class="user-info">
-                        <span>To:</span><a href="#">John Mayers</a>
+                        <span>To:</span><a href="#"><span class="text-capitalize" sec:authentication="name">Anonymous</span></a>
                       </div>
                       <div class="user-actions">
                         <a href="#"><i class="os-icon os-icon-mail-07"></i></a><a href="#"><i class="os-icon os-icon-phone-18"></i></a><a href="#"><i class="os-icon os-icon-phone-15"></i></a>
@@ -1413,7 +1414,7 @@
                             1:23pm
                           </div>
                           <div class="chat-message-avatar">
-                            <img alt="" src="img/avatar1.jpg">
+                            <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                           </div>
                         </div>
                         <div class="chat-message">
@@ -1448,11 +1449,11 @@
                   <div class="full-chat-right">
                     <div class="user-intro">
                       <div class="avatar">
-                        <img alt="" src="img/avatar1.jpg">
+                        <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                       </div>
                       <div class="user-intro-info">
                         <h5 class="user-name">
-                          John Mayers
+                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                         </h5>
                         <div class="user-sub">
                           San Francisco, CA
@@ -1666,12 +1667,12 @@
                     <div class="user-w with-status status-green">
                       <div class="user-avatar-w">
                         <div class="user-avatar">
-                          <img alt="" src="img/avatar1.jpg">
+                          <img alt="" th:src="${#authentication.principal.userAdditionalInfoPo.profileImageLink}" src="" onerror="this.src='img/avatar1.jpg'">
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          John Mayers
+                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
                         </h6>
                         <div class="user-role">
                           Account Manager
