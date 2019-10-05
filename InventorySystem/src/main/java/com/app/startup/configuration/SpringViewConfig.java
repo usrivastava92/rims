@@ -28,7 +28,11 @@ public class SpringViewConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("img/**").addResourceLocations("classpath:/static/img/");
 		registry.addResourceHandler("js/**").addResourceLocations("classpath:/static/js/");
 		registry.addResourceHandler("css/**").addResourceLocations("classpath:/static/css/");
-		registry.addResourceHandler("icon_fonts_assets/**").addResourceLocations("classpath:/static/icon_fonts_assets/");
+		registry.addResourceHandler("icon_fonts_assets/**")
+				.addResourceLocations("classpath:/static/icon_fonts_assets/");
+		registry.addResourceHandler("/apple-touch-icon.png")
+				.addResourceLocations("classpath:/static/apple-touch-icon.png");
+		registry.addResourceHandler("/favicon.png").addResourceLocations("classpath:/static/favicon.png");
 	}
 
 	@Bean

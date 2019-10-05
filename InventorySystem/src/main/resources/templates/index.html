@@ -22,7 +22,8 @@
   </head>
   <body class="menu-position-side menu-side-left full-screen with-content-panel">
     <div class="all-wrapper with-side-panel solid-bg-all">
-      <div aria-hidden="true" class="onboarding-modal modal fade animated show-on-load" role="dialog" tabindex="-1">
+      <!--add show-on-load class to below modal to make the modal appear on page load-->
+      <div aria-hidden="true" class="onboarding-modal modal fade animated " role="dialog" tabindex="-1">
         <div class="modal-dialog modal-centered" role="document">
           <div class="modal-content text-center">
             <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Skip Intro</span><span class="os-icon os-icon-close"></span></button>
@@ -700,7 +701,7 @@
                     <a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a>
                   </li>
                   <li>
-                    <a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
+                    <a href="/auth/logout"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
                   </li>
                 </ul>
               </div>
@@ -1523,7 +1524,7 @@
                         <a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a>
                       </li>
                       <li>
-                        <a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
+                        <a href="/auth/logout"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
                       </li>
                     </ul>
                   </div>
