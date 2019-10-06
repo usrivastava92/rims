@@ -22,4 +22,6 @@ public interface BaseService {
 	public List<?> getEntityList(String namedQueryName, Map<String, Object> whereClauseMap);
 
 	public List<Object[]> getEntityList(String sqlString);
+
+	public <T> T getEntityById(Class<T> entityClass, Long id);
 }

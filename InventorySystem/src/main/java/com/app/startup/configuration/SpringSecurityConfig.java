@@ -74,19 +74,20 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable().authorizeRequests().antMatchers("/landing-page", "/auth/login", "/auth/logout").permitAll()
-				.antMatchers("/**").access("isAuthenticated()").and().formLogin().loginProcessingUrl("/login")
-				.loginPage("/landing-page").defaultSuccessUrl("/index").failureUrl("/landing-page?error")
-				.usernameParameter("username").passwordParameter("password").and().logout().logoutUrl("/perform_logout")
-				.invalidateHttpSession(true).deleteCookies("JSESSIONID").and().exceptionHandling()
-				.accessDeniedHandler(accessDeniedHandler);
+		http.csrf().disable().authorizeRequests().antMatchers("/landing-page", "/auth/login", "/auth/logout")
+				.permitAll().antMatchers("/**").access("isAuthenticated()").and().formLogin()
+				.loginProcessingUrl("/login").loginPage("/landing-page").defaultSuccessUrl("/index")
+				.failureUrl("/landing-page?error").usernameParameter("username").passwordParameter("password").and()
+				.logout().logoutUrl("/perform_logout").invalidateHttpSession(true).deleteCookies("JSESSIONID").and()
+				.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 	}
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/assets/**",
-				"/data/**", "/libs/**", "/**/*/favicon.*", "/h2", "/h2/**", "bower_components/**", "img/**",
-				"icon_fonts_assets/**", "/apple-touch-icon.png", "/favicon.png");
+				"/data/**", "/libs/**", "/**/*/favicon.*", "/h2", "/h2/**", "bower_components/**",
+				"/bower_components/**", "img/**", "/img/**", "icon_fonts_assets/**", "apple-touch-icon.png",
+				"/apple-touch-icon.png", "css/**");
 	}
 
 }

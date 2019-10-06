@@ -1,5 +1,6 @@
 package com.app.hibernate.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -73,4 +74,15 @@ public class BaseServiceImpl implements BaseService {
 		return daoImpl.getEntityList(sqlString);
 	}
 
+	@Override
+	@Transactional
+	public <T> T getEntityById(Class<T> entityClass, Long id) {
+		HashMap<String, Object> whereClauseHashmap = new HashMap<>();
+		whereClauseHashmap.put("id", id);
+		List<T> entityList = getEntityList(entityClass, whereClauseHashmap);
+		if (!entityList.isEmpty()) {
+			return entityList.get(0);
+		}
+		return null;
+	}
 }

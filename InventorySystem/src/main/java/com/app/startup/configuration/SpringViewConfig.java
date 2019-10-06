@@ -79,6 +79,13 @@ public class SpringViewConfig implements WebMvcConfigurer {
 	public SimpleUrlHandlerMapping getUrlHandlerMapping(IndexController indexController) {
 		SimpleUrlHandlerMapping handlerMapping = new SimpleUrlHandlerMapping();
 		Properties mappings = new Properties();
+		mappings.put("/users/**", "userController");
+		mappings.put("/roles/**", "roleController");
+		mappings.put("/authorities/**", "authorityController");
+		mappings.put("/products/**", "productController");
+		mappings.put("/sales/**", "salesController");
+		mappings.put("/vendors/**", "vendorController");
+		mappings.put("/auth/**", "authenticationController");
 		mappings.put("/**/*.html", "urlViewController");
 		handlerMapping.setMappings(mappings);
 		return handlerMapping;
