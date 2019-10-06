@@ -82,7 +82,12 @@
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
 		
+<<<<<<< HEAD
 	<!--<dependency>
+=======
+		<!--
+		<dependency>
+>>>>>>> cd50eb252cb2f51c98b6a1a530ddad168763e179
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-gcp-starter</artifactId>
 		</dependency>
@@ -95,6 +100,7 @@
 			<artifactId>spring-cloud-gcp-starter-storage</artifactId>
 		</dependency> -->
 
+		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
