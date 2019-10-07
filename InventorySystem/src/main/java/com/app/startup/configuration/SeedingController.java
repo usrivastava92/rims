@@ -12,10 +12,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.app.generic.utilities.ExcelUtility;
-import com.app.hibernate.entity.AuthorityPo;
-import com.app.hibernate.entity.RolePo;
 import com.app.hibernate.entity.UserAdditionalInfoPo;
-import com.app.hibernate.entity.UserPo;
+import com.app.hibernate.entity.masters.AuthorityPo;
+import com.app.hibernate.entity.masters.RolePo;
+import com.app.hibernate.entity.masters.UserPo;
 import com.app.hibernate.service.BaseService;
 
 @Named("seedingController")

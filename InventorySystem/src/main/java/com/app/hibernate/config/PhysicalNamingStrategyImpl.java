@@ -12,7 +12,39 @@ public class PhysicalNamingStrategyImpl extends PhysicalNamingStrategyStandardIm
 
 	@Override
 	public Identifier toPhysicalTableName(Identifier name, JdbcEnvironment context) {
-		return new Identifier(name.getText().concat(SUFFIX).toUpperCase(), name.isQuoted());
+		String underScoreText = addUnderscores(name.getText());
+		return new Identifier(transformToPluralFormWithSuffix(underScoreText), name.isQuoted());
+	}
+
+	public Identifier toPhysicalColumnName(Identifier name, JdbcEnvironment context) {
+		String underScoreText = addUnderscores(name.getText());
+		return new Identifier(transformToPluralForm(underScoreText), name.isQuoted());
+	}
+
+	public Identifier toPhysicalSequenceName(Identifier name, JdbcEnvironment context) {
+		String underScoreText = addUnderscores(name.getText());
+		return new Identifier(transformToPluralForm(underScoreText), name.isQuoted());
+	}
+
+	private String transformToPluralForm(String tableNameInSingularForm) {
+		return DataBaseMappingUtil.abbreviateName(tableNameInSingularForm);
+	}
+
+	private String transformToPluralFormWithSuffix(String tableNameInSingularForm) {
+		String nameWithoutSuffix = DataBaseMappingUtil.abbreviateName(tableNameInSingularForm, 26);
+		return nameWithoutSuffix.concat(SUFFIX);
+	}
+
+	protected static String addUnderscores(String name) {
+		StringBuilder buf = new StringBuilder(name.replace('.', '_'));
+		for (int i = 1; i < buf.length() - 1; ++i) {
+			if ((Character.isLowerCase(buf.charAt(i - 1))) && (Character.isUpperCase(buf.charAt(i)))
+					&& (Character.isLowerCase(buf.charAt(i + 1)))) {
+				buf.insert(i++, '_');
+			}
+		}
+		return buf.toString().toLowerCase();
+
 	}
 
 }

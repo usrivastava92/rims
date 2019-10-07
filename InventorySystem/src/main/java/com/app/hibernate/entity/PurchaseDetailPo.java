@@ -4,25 +4,17 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.app.hibernate.core.entities.BaseEntity;
 
 @Entity
 @Table(name = "PURCHASE_DTL")
 public class PurchaseDetailPo extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PURCHASE_DTL_GEN")
-	@SequenceGenerator(name = "PURCHASE_DTL_GEN", sequenceName = "PURCHASE_DTL_SEQ", initialValue = 1)
-	@Column(name = "id")
-	private Long id;
 
 	@Column(name = "PRODUCT_NAME", nullable = false)
 	private String productName;
@@ -62,14 +54,6 @@ public class PurchaseDetailPo extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "PURCHASE_HDR_FK", referencedColumnName = "id", nullable = false)
 	private PurchaseHeaderPo purchaseHdrFk;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getProductName() {
 		return productName;

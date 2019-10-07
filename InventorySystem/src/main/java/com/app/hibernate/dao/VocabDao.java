@@ -3,7 +3,7 @@ package com.app.hibernate.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.app.hibernate.entity.UserPo;
+import com.app.hibernate.entity.masters.UserPo;
 
 public interface VocabDao {
 

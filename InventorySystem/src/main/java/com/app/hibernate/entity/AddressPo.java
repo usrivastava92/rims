@@ -2,30 +2,24 @@ package com.app.hibernate.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.app.hibernate.core.entities.BaseEntity;
 
 @Entity
 @Table(name = "ADDRESS")
 public class AddressPo extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADDRESS_SEQ_GEN")
-	@SequenceGenerator(name = "ADDRESS_SEQ_GEN", sequenceName = "ADDRESS_SEQ", initialValue = 1)
-	private Long id;
 
 	@Column(name = "ADDRESS_LINE1", nullable = false)
 	private String addressLine1;
 	@Column(name = "ADDRESS_LINE2")
 	private String addressline2;
 	@Column(name = "AREA_NAME", nullable = false)
-	private String areaNAME;
+	private String areaName;
 	@Column(name = "CITY_NAME", nullable = false)
 	private String cityName;
 	@Column(name = "STATE_NAME", nullable = false)
@@ -40,14 +34,6 @@ public class AddressPo extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "CONTACT_INFO_fk", referencedColumnName = "id", nullable = false)
 	private ContactInfoPo contactInfofK;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getAddressLine1() {
 		return addressLine1;
@@ -65,12 +51,12 @@ public class AddressPo extends BaseEntity {
 		this.addressline2 = addressline2;
 	}
 
-	public String getAreaNAME() {
-		return areaNAME;
+	public String getareaName() {
+		return areaName;
 	}
 
-	public void setAreaNAME(String areaNAME) {
-		this.areaNAME = areaNAME;
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
 	}
 
 	public String getCityName() {

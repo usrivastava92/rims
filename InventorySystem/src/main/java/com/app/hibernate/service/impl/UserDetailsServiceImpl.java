@@ -11,7 +11,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.app.hibernate.entity.UserPo;
+import com.app.hibernate.entity.masters.UserPo;
 import com.app.hibernate.service.BaseService;
 
 @Named("userService")

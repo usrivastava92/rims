@@ -1,4 +1,4 @@
-package com.app.hibernate.entity;
+package com.app.hibernate.entity.masters;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,20 +8,18 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.app.hibernate.core.entities.BaseEntity;
+import com.app.hibernate.entity.UserAdditionalInfoPo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -30,10 +28,6 @@ public class UserPo extends BaseEntity implements UserDetails {
 
 	private static final long serialVersionUID = -3788850886108135694L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ_GEN")
-	@SequenceGenerator(name = "USERS_SEQ_GEN", sequenceName = "USERS_SEQ", initialValue = 1)
-	private long id;
 	@Column(name = "USERNAME", unique = true)
 	private String username;
 	@OneToOne(cascade = CascadeType.ALL)
@@ -135,10 +129,6 @@ public class UserPo extends BaseEntity implements UserDetails {
 		this.password = password;
 	}
 
-	public long getId() {
-		return id;
-	}
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return getGrantedAuthorities(getAuthorities(this.roles));
@@ -183,18 +173,6 @@ public class UserPo extends BaseEntity implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return this.userEnabled;
-	}
-
-	public String getUserId() {
-		return String.valueOf(id);
-	}
-
-	@Override
-	public String toString() {
-		return "UserPo [id=" + id + ", username=" + username + ", userAdditionalInfoPo=" + userAdditionalInfoPo
-				+ ", email=" + email + ", password=" + password + ", userEnabled=" + userEnabled + ", accountExpired="
-				+ accountExpired + ", accountLocked=" + accountLocked + ", credentialsExpired=" + credentialsExpired
-				+ ", roles=" + roles + "]";
 	}
 
 }

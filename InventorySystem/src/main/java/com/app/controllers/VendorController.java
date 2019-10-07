@@ -5,8 +5,8 @@ import java.util.HashMap;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.app.hibernate.entity.RolePo;
-import com.app.hibernate.entity.UserPo;
+import com.app.hibernate.entity.masters.RolePo;
+import com.app.hibernate.entity.masters.UserPo;
 import com.app.hibernate.service.BaseService;
 
 import org.springframework.stereotype.Controller;
