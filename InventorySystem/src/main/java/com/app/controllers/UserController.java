@@ -1,7 +1,6 @@
 package com.app.controllers;
 
 import java.util.HashMap;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PRODUCT")
-public class ProductPO extends BaseEntity {
+public class ProductPo extends BaseEntity {
 
     /**
      *

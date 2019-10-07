@@ -1,13 +1,5 @@
 package com.app.controllers;
 
-import java.util.HashMap;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import com.app.hibernate.entity.UserPo;
-import com.app.hibernate.service.BaseService;
-
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
