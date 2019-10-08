@@ -16,7 +16,7 @@ public class UserAdditionalInfoPo extends BaseEntity {
 	private String firstname;
 	@Column(name = "LASTNAME")
 	private String lastname;
-	@Column(name = "PROFILE_IMAGE_LINK")
+	@Column(name = "PROFILE_IMAGE_LINK",columnDefinition = "VARCHAR(500)")
 	private String profileImageLink;
 
 	public String getFirstname() {

@@ -107,4 +107,14 @@ public class BaseDaoImpl implements BaseDao {
 		return entityManager.createNativeQuery(sqlString).getResultList();
 	}
 
+	@Override
+	public boolean executeQuery(String sqlString) {
+		try {
+			entityManager.createNativeQuery(sqlString).executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

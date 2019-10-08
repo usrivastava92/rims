@@ -85,4 +85,14 @@ public class BaseServiceImpl implements BaseService {
 		}
 		return null;
 	}
+
+	@Override
+	@Transactional
+	public boolean executeQuery(String sqlString) {
+		String validatedQuery = sqlString.trim();
+		if (validatedQuery.endsWith(";")) {
+			validatedQuery = validatedQuery.substring(0, validatedQuery.length()-1);
+		}
+		return daoImpl.executeQuery(validatedQuery);
+	}
 }

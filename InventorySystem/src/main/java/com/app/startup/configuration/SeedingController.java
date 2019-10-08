@@ -1,7 +1,5 @@
 package com.app.startup.configuration;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,77 +10,71 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.app.generic.utilities.ExcelUtility;
-import com.app.hibernate.entity.UserAdditionalInfoPo;
-import com.app.hibernate.entity.masters.AuthorityPo;
-import com.app.hibernate.entity.masters.RolePo;
-import com.app.hibernate.entity.masters.UserPo;
 import com.app.hibernate.service.BaseService;
 
 @Named("seedingController")
 public class SeedingController {
 
 	@Value("${application.seedOperation}")
-	private String seedflag;
+	private String seedflag = "true";
 
 	@Inject
 	@Named("baseServiceImpl")
 	private BaseService baseServiceImpl;
 
+	@Value("${spring.jpa.database-platform}")
+	private String dialect;
+
 	@PostConstruct
-	private void performSeedingOperation() {
+	public void performSeedingOperation() {
 
 		if (Boolean.valueOf(seedflag)) {
 
-			System.out.println("Beginning seeding operation : seed flag ->" + seedflag);
+			System.out.println("SEEDING CONTROLLER : Beginning seeding operation : seed flag -> " + seedflag);
+
+			dialect = dialect.toUpperCase();
+			String dbType = "NA";
+			if (dialect.contains("ORACLE")) {
+				dbType = "ORACLE";
+			} else if (dialect.contains("HSQL")) {
+				dbType = "HSQL";
+			} else if (dialect.contains("H2")) {
+				dbType = "H2";
+			} else if (dialect.contains("MYSQL")) {
+				dbType = "MYSQL";
+			} else if (dialect.contains("MARIA")) {
+				dbType = "MARIA";
+			}
+
+			System.out.println("SEEDING CONTROLLER : Found database as ->" + dbType);
 
 			ExcelUtility excelUtility = new ExcelUtility("SeedData.xls");
-			Collection<AuthorityPo> authorities = new ArrayList<>();
-			List<Row> rowList = excelUtility.getRowList("AUTHORITIES");
-			int i = 0;
-			for (Row row : rowList) {
-				if (i != 0) {
-					AuthorityPo authority = new AuthorityPo();
-					authority.setName(excelUtility.getCellValue(row.getCell(0)));
-					authorities.add(authority);
-					baseServiceImpl.persistEntity(authority);
+
+			List<Row> rows = excelUtility.getRowList("SHEET_SEQ", true);
+
+			Row integrityToggleRow = excelUtility.getRowWithFirstColumnAs("INTEGRITY_TOGGLE", dbType, true);
+
+			String integrityEnableQuery = excelUtility.getCellValue(integrityToggleRow.getCell(1));
+			String integrityDisableQuery = excelUtility.getCellValue(integrityToggleRow.getCell(2));
+
+			System.out.println("SEEDING CONTROLLER : executing ->" + integrityDisableQuery);
+			baseServiceImpl.executeQuery(integrityDisableQuery);
+
+			for (Row row : rows) {
+				String sheetName = excelUtility.getCellValue(row.getCell(0)).trim();
+				List<Row> queryRows = excelUtility.getRowList(sheetName, true);
+				for (Row queryRow : queryRows) {
+					String query = excelUtility.getCellValue(queryRow.getCell(0)).trim();
+					if (query != null && !"".equals(query)) {
+
+						System.out.println("SEEDING CONTROLLER : executing ->" + query);
+						baseServiceImpl.executeQuery(query);
+					}
 				}
-				i++;
+
 			}
-
-			Collection<RolePo> roles = new ArrayList<>();
-			rowList = excelUtility.getRowList("ROLE");
-			i = 0;
-			for (Row row : rowList) {
-				if (i != 0) {
-					RolePo role = new RolePo();
-					role.setName(excelUtility.getCellValue(row.getCell(0)));
-					role.setAuthorities(authorities);
-					roles.add(role);
-					baseServiceImpl.persistEntity(role);
-				}
-				i++;
-			}
-
-			rowList = excelUtility.getRowList("USERS");
-			i = 0;
-			for (Row row : rowList) {
-				if (i != 0) {
-
-					UserPo user = new UserPo();
-					user.setUsername(excelUtility.getCellValue(row.getCell(0)));
-					user.setPassword(excelUtility.getCellValue(row.getCell(1)));
-					user.setUserEnabled((Boolean.valueOf(excelUtility.getCellValue(row.getCell(2)))));
-					user.setRoles(roles);
-					UserAdditionalInfoPo userAdditionalInfoPo = new UserAdditionalInfoPo();
-					userAdditionalInfoPo.setFirstname(excelUtility.getCellValue(row.getCell(3)));
-					userAdditionalInfoPo.setLastname(excelUtility.getCellValue(row.getCell(4)));
-					userAdditionalInfoPo.setProfileImageLink(excelUtility.getCellValue(row.getCell(5)));
-					user.setUserAdditionalInfoPo(userAdditionalInfoPo);
-
-					baseServiceImpl.persistEntity(user);
-				}
-				i++;
-			}
+			System.out.println("SEEDING CONTROLLER : executing ->" + integrityEnableQuery);
+			baseServiceImpl.executeQuery(integrityEnableQuery);
 		}
 	}
 

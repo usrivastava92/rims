@@ -24,4 +24,6 @@ public interface BaseService {
 	public List<Object[]> getEntityList(String sqlString);
 
 	public <T> T getEntityById(Class<T> entityClass, Long id);
+
+	public boolean executeQuery(String sqlString);
 }

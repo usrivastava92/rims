@@ -22,7 +22,7 @@ public abstract class BaseEntity implements Serializable {
 	@GenericGenerator(name = "sequencePerEntityGenerator", strategy = "com.app.hibernate.config.CustomSequenceGenerator", parameters = {
 			@org.hibernate.annotations.Parameter(name = "prefer_sequence_per_entity", value = "true"),
 			@org.hibernate.annotations.Parameter(name = "sequence_per_entity_suffix", value = "_seq"),
-			@org.hibernate.annotations.Parameter(name = "initial_value", value = "1") })
+			@org.hibernate.annotations.Parameter(name = "initial_value", value = "100") })
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "sequencePerEntityGenerator")
 	private Long id;
 

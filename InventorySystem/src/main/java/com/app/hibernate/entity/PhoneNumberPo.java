@@ -22,7 +22,7 @@ public class PhoneNumberPo extends BaseEntity {
 	private int phoneExtension;
 
 	@ManyToOne
-	@JoinColumn(name = "CONTACT_INFO_fk", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "CONTACT_INFO_FK", referencedColumnName = "id", nullable = false)
 	private ContactInfoPo contactInfo;
 
 	public String getPhoneType() {

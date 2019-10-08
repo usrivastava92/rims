@@ -2,7 +2,6 @@ package com.app.hibernate.entity.masters;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinTable;
@@ -19,9 +18,6 @@ import javax.persistence.JoinColumn;
 public class RolePo extends BaseMasterEntity {
 
 	private static final long serialVersionUID = 2712743338399969863L;
-
-	@Column(name = "NAME")
-	private String name;
 
 	@ManyToMany(mappedBy = "roles")
 	private Collection<UserPo> users;

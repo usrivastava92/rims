@@ -43,10 +43,13 @@ public class ExcelUtility {
 		return getSheet(sheetName).getRow(rowIndex);
 	}
 
-	public List<Row> getRowList(String sheetName) {
+	public List<Row> getRowList(String sheetName, boolean ignoreFirstRow) {
 		Sheet sheet = getSheet(sheetName);
 		List<Row> rowList = new ArrayList<>();
 		Iterator<Row> rowIterator = sheet.rowIterator();
+		if (ignoreFirstRow && rowIterator.hasNext()) {
+			rowIterator.next();
+		}
 		while (rowIterator.hasNext()) {
 			rowList.add(rowIterator.next());
 		}
@@ -57,10 +60,13 @@ public class ExcelUtility {
 		return getSheet(sheetIndex).getRow(rowIndex);
 	}
 
-	public List<Row> getRowList(int sheetIndex) {
+	public List<Row> getRowList(int sheetIndex, boolean ignoreFirstRow) {
 		Sheet sheet = getSheet(sheetIndex);
 		List<Row> rowList = new ArrayList<>();
 		Iterator<Row> rowIterator = sheet.rowIterator();
+		if (ignoreFirstRow && rowIterator.hasNext()) {
+			rowIterator.next();
+		}
 		while (rowIterator.hasNext()) {
 			rowList.add(rowIterator.next());
 		}
@@ -69,6 +75,35 @@ public class ExcelUtility {
 
 	public String getCellValue(Cell cell) {
 		return this.dataFormatter.formatCellValue(cell);
+	}
+
+	public Row getRowWithFirstColumnAs(int sheetIndex, String firstColumnValue, boolean ignoreFirstRow) {
+		Sheet sheet = getSheet(sheetIndex);
+		Iterator<Row> rowIterator = sheet.rowIterator();
+		if (ignoreFirstRow && rowIterator.hasNext()) {
+			rowIterator.next();
+		}
+		while (rowIterator.hasNext()) {
+			Row row = rowIterator.next();
+			firstColumnValue.equals(getCellValue(row.getCell(0)));
+			return row;
+		}
+		return null;
+	}
+
+	public Row getRowWithFirstColumnAs(String sheetName, String firstColumnValue, boolean ignoreFirstRow) {
+		Sheet sheet = getSheet(sheetName);
+		Iterator<Row> rowIterator = sheet.rowIterator();
+		if (ignoreFirstRow && rowIterator.hasNext()) {
+			rowIterator.next();
+		}
+		while (rowIterator.hasNext()) {
+			Row row = rowIterator.next();
+			if (firstColumnValue.equals(getCellValue(row.getCell(0)))) {
+				return row;
+			}
+		}
+		return null;
 	}
 
 	public HSSFWorkbook getWorkbook() {

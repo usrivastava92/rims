@@ -23,4 +23,6 @@ public interface BaseDao {
 
 	public List<Object[]> getEntityList(String sqlString);
 
+	public boolean executeQuery(String sqlString);
+
 }
