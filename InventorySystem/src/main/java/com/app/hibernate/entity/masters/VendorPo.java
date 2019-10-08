@@ -1,11 +1,14 @@
 package com.app.hibernate.entity.masters;
 
+import java.util.Collection;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -38,6 +41,13 @@ public class VendorPo extends BaseMasterEntity {
 	@OneToOne
 	@JoinColumn(name = "BANK_DETAILS", referencedColumnName = "id")
 	private BankDetailsPo bankDetails;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "VENDOR_PRODUCT", joinColumns = @JoinColumn(name = "VENDOR_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"))
+	private Collection<ProductPo> products;
+	
+	
+	
 
 	public String getGstNumber() {
 		return gstNumber;

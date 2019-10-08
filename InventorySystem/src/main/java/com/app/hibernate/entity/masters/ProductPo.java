@@ -18,7 +18,7 @@ public class ProductPo extends BaseMasterEntity {
 
 
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "PRODUCT_ATTRIBUTE", joinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "ATTRIBUTE_ID", referencedColumnName = "id"))
 	private Collection<GenericAttributePo> genericAttributes;
 
@@ -26,6 +26,41 @@ public class ProductPo extends BaseMasterEntity {
 		return this.genericAttributes;
 
 	}
+	
+	
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "VENDOR_PRODUCT", joinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "VENDOR_ID", referencedColumnName = "id"))
+	private Collection<VendorPo> vendors;
+	
+	
+	
+	
+	
+	
+	
+
+	public Collection<VendorPo> getVendors() {
+		return vendors;
+	}
+
+
+
+
+
+
+
+
+	public void setVendors(Collection<VendorPo> vendors) {
+		this.vendors = vendors;
+	}
+
+
+
+
+
+
+
 
 	public void setGenericAttributes(Collection<GenericAttributePo> genericAttributes){
 		this.genericAttributes=genericAttributes;
