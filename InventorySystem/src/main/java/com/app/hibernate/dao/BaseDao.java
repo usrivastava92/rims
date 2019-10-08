@@ -25,4 +25,11 @@ public interface BaseDao {
 
 	public boolean executeQuery(String sqlString);
 
+	public boolean deleteEntity(Object entityList);
+
+	public boolean deleteEntityList(List<?> entityList);
+
+	public <T> boolean deleteEntityById(Class<T> entityClass, Long id);
+
+	public <T> T getEntityById(Class<T> entityClass, Long id);
 }

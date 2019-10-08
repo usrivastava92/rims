@@ -1,6 +1,5 @@
 package com.app.hibernate.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,6 +51,24 @@ public class BaseServiceImpl implements BaseService {
 
 	@Override
 	@Transactional
+	public boolean deleteEntityList(List<?> entityList) {
+		return daoImpl.deleteEntityList(entityList);
+	}
+
+	@Override
+	@Transactional
+	public boolean deleteEntity(Object entity) {
+		return daoImpl.deleteEntity(entity);
+	}
+
+	@Override
+	@Transactional
+	public <T> boolean deleteEntityById(Class<T> entityClass, Long id) {
+		return daoImpl.deleteEntityById(entityClass, id);
+	}
+
+	@Override
+	@Transactional
 	public <T> List<T> getEntityList(Class<T> entityClass, Map<String, Object> whereClauseMap) {
 		return daoImpl.getEntityList(entityClass, whereClauseMap);
 	}
@@ -77,13 +94,7 @@ public class BaseServiceImpl implements BaseService {
 	@Override
 	@Transactional
 	public <T> T getEntityById(Class<T> entityClass, Long id) {
-		HashMap<String, Object> whereClauseHashmap = new HashMap<>();
-		whereClauseHashmap.put("id", id);
-		List<T> entityList = getEntityList(entityClass, whereClauseHashmap);
-		if (!entityList.isEmpty()) {
-			return entityList.get(0);
-		}
-		return null;
+		return daoImpl.getEntityById(entityClass, id);
 	}
 
 	@Override
@@ -91,7 +102,7 @@ public class BaseServiceImpl implements BaseService {
 	public boolean executeQuery(String sqlString) {
 		String validatedQuery = sqlString.trim();
 		if (validatedQuery.endsWith(";")) {
-			validatedQuery = validatedQuery.substring(0, validatedQuery.length()-1);
+			validatedQuery = validatedQuery.substring(0, validatedQuery.length() - 1);
 		}
 		return daoImpl.executeQuery(validatedQuery);
 	}

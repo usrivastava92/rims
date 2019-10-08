@@ -30,13 +30,14 @@ public class AuthenticationController {
 	@PostMapping({ "/login" })
 	@ResponseBody
 	public boolean login(@RequestParam("username") String username, @RequestParam("password") String password) {
-		System.out.println("Login attempt by : "+username);
-		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
-		UserPo details = new UserPo();
-		details.setUsername(username);
-		token.setDetails(details);
+		System.out.println("Login attempt by : " + username);
+		UserPo userPo = new UserPo();
+		userPo.setUsername(username);
+		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+				username, password);
+		usernamePasswordAuthenticationToken.setDetails(userPo);
 		try {
-			Authentication auth = authenticationManager.authenticate(token);
+			Authentication auth = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 			SecurityContextHolder.getContext().setAuthentication(auth);
 			return auth.isAuthenticated();
 		} catch (BadCredentialsException e) {
@@ -51,7 +52,7 @@ public class AuthenticationController {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("msg", "You've been logged out successfully.");
+		modelAndView.addObject("logout", "true");
 		modelAndView.setViewName("redirect:/landing-page");
 		return modelAndView;
 	}
