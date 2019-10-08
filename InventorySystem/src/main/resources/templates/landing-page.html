@@ -30,7 +30,13 @@
             <div class="logo-w">
                 <a href="index.html"><img alt="" src="/assets/img/logo-big.png"></a>
                 <div class="text-center h3">R.I.M.S</div>
-                <div id="loginMessageHolder"></div>
+                <div id="messageHolder">
+                    <div th:if="${(param.logout != null) and (param.logout[0] == 'true')}"
+                        class='alert alert-success alert-dismissible fade show' role='alert'> <button aria-label='Close'
+                            class='close' data-dismiss='alert' type='button'><span aria-hidden='true'>
+                                ×</span></button>You've been logged out
+                        successfully.. </div>
+                </div>
             </div>
             <h4 class="auth-header">
                 Login Form
@@ -87,14 +93,14 @@
                                                 .replace(location.pathname);
                                         } else {
                                             var loginFailedMessage = "Try again with correct username and password combination.";
-                                            $("#loginMessageHolder").html(dangerMessageDiv.replace("{message}", loginFailedMessage));
+                                            $("#messageHolder").html(dangerMessageDiv.replace("{message}", loginFailedMessage));
                                         }
                                     },
                                     error: function (e) {
                                         console.log("ERROR: ",
                                             e);
                                         var loginFailedMessage = "Unable to reach server, Check your internet connection and try again.";
-                                        $("#loginMessageHolder").html(dangerMessageDiv.replace("{message}", loginFailedMessage));
+                                        $("#messageHolder").html(dangerMessageDiv.replace("{message}", loginFailedMessage));
                                     },
                                     done: function (e) {
                                         console.log("DONE");

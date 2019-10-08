@@ -26,4 +26,10 @@ public interface BaseService {
 	public <T> T getEntityById(Class<T> entityClass, Long id);
 
 	public boolean executeQuery(String sqlString);
+
+	public boolean deleteEntity(Object entity);
+
+	public boolean deleteEntityList(List<?> entityList);
+
+	public <T> boolean deleteEntityById(Class<T> entityClass, Long id);
 }

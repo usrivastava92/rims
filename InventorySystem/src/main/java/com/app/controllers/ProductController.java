@@ -5,8 +5,7 @@ import java.util.HashMap;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.app.hibernate.entity.masters.RolePo;
-import com.app.hibernate.entity.masters.UserPo;
+import com.app.hibernate.entity.masters.ProductPo;
 import com.app.hibernate.service.BaseService;
 
 import org.springframework.stereotype.Controller;
@@ -26,7 +25,7 @@ public class ProductController {
 	@GetMapping()
 	public ModelAndView getAllUsers(ModelAndView modelAndView) {
 		System.out.println("PRODUCTS CONTROLLER : fetching all products ");
-		modelAndView.addObject("products", baseServiceImpl.getEntityList(UserPo.class, new HashMap<>()));
+		modelAndView.addObject("products", baseServiceImpl.getEntityList(ProductPo.class, new HashMap<>()));
 		modelAndView.setViewName("products");
 		return modelAndView;
 	}
@@ -34,7 +33,7 @@ public class ProductController {
 	@GetMapping("/get/{id}")
 	public ModelAndView getUser(ModelAndView modelAndView, @PathVariable Long id) {
 		System.out.println("PRODUCTS CONTROLLER : fetching product with id -> " + id);
-		modelAndView.addObject("product", baseServiceImpl.getEntityById(RolePo.class, id));
+		modelAndView.addObject("product", baseServiceImpl.getEntityById(ProductPo.class, id));
 		modelAndView.setViewName("product");
 		return modelAndView;
 	}

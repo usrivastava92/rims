@@ -7,6 +7,7 @@ import javax.inject.Named;
 
 import com.app.hibernate.entity.masters.RolePo;
 import com.app.hibernate.entity.masters.UserPo;
+import com.app.hibernate.entity.masters.VendorPo;
 import com.app.hibernate.service.BaseService;
 
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class VendorController {
 	@GetMapping()
 	public ModelAndView getAllVendors(ModelAndView modelAndView) {
 		System.out.println("VENDORS CONTROLLER : fetching all vendors ");
-		modelAndView.addObject("vendors", baseServiceImpl.getEntityList(UserPo.class, new HashMap<>()));
+		modelAndView.addObject("vendors", baseServiceImpl.getEntityList(VendorPo.class, new HashMap<>()));
 		modelAndView.setViewName("vendors");
 		return modelAndView;
 	}
@@ -34,7 +35,7 @@ public class VendorController {
 	@GetMapping("/get/{id}")
 	public ModelAndView getUser(ModelAndView modelAndView, @PathVariable Long id) {
 		System.out.println("VENDORS CONTROLLER : fetching vendor with id -> " + id);
-		modelAndView.addObject("vendor", baseServiceImpl.getEntityById(RolePo.class, id));
+		modelAndView.addObject("vendor", baseServiceImpl.getEntityById(VendorPo.class, id));
 		modelAndView.setViewName("vendor");
 		return modelAndView;
 	}

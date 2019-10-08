@@ -1,6 +1,7 @@
 package com.app.hibernate.dao.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -58,6 +59,32 @@ public class BaseDaoImpl implements BaseDao {
 	}
 
 	@Override
+	public boolean deleteEntityList(List<?> entityList) {
+		for (Object entity : entityList) {
+			deleteEntity(entity);
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteEntity(Object entity) {
+		if (entity != null) {
+			try {
+				entityManager.remove(entity);
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public <T> boolean deleteEntityById(Class<T> entityClass, Long id) {
+		return deleteEntity(getEntityById(entityClass, id));
+	}
+
+	@Override
 	public <T> List<T> getEntityList(Class<T> entityClass, Map<String, Object> whereClauseMap) {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<T> criteria = builder.createQuery(entityClass);
@@ -105,6 +132,17 @@ public class BaseDaoImpl implements BaseDao {
 	@SuppressWarnings("unchecked")
 	public List<Object[]> getEntityList(String sqlString) {
 		return entityManager.createNativeQuery(sqlString).getResultList();
+	}
+
+	@Override
+	public <T> T getEntityById(Class<T> entityClass, Long id) {
+		HashMap<String, Object> whereClauseHashmap = new HashMap<>();
+		whereClauseHashmap.put("id", id);
+		List<T> entityList = getEntityList(entityClass, whereClauseHashmap);
+		if (!entityList.isEmpty()) {
+			return entityList.get(0);
+		}
+		return null;
 	}
 
 	@Override

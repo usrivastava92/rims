@@ -5,7 +5,7 @@ import java.util.HashMap;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.app.hibernate.entity.masters.RolePo;
+import com.app.hibernate.entity.masters.GenericAttributePo;
 import com.app.hibernate.service.BaseService;
 
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,8 @@ public class GenericAttributeController {
 	@GetMapping()
 	public ModelAndView getAllUsers(ModelAndView modelAndView) {
 		System.out.println("GENERIC ATTRIBUTE CONTROLLER : fetching all generic attributes ");
-		modelAndView.addObject("genericAttributes", baseServiceImpl.getEntityList(RolePo.class, new HashMap<>()));
+		modelAndView.addObject("genericAttributes",
+				baseServiceImpl.getEntityList(GenericAttributePo.class, new HashMap<>()));
 		modelAndView.setViewName("genericAttributes");
 		return modelAndView;
 	}
@@ -33,7 +34,7 @@ public class GenericAttributeController {
 	@GetMapping("/get/{id}")
 	public ModelAndView getUser(ModelAndView modelAndView, @PathVariable Long id) {
 		System.out.println("GENERIC ATTRIBUTE CONTROLLER : fetching generic attribute with id -> " + id);
-		modelAndView.addObject("genericAttribute", baseServiceImpl.getEntityById(RolePo.class, id));
+		modelAndView.addObject("genericAttribute", baseServiceImpl.getEntityById(GenericAttributePo.class, id));
 		modelAndView.setViewName("genericAttribute");
 		return modelAndView;
 	}
