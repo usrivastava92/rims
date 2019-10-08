@@ -5,8 +5,6 @@ import java.util.HashMap;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.app.hibernate.entity.masters.RolePo;
-import com.app.hibernate.entity.masters.UserPo;
 import com.app.hibernate.entity.masters.VendorPo;
 import com.app.hibernate.service.BaseService;
 

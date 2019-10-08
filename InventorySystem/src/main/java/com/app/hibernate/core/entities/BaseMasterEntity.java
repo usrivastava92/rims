@@ -17,6 +17,31 @@ public abstract class BaseMasterEntity extends BaseEntity {
 	@Column(name = "DESCRIPTION")
 	private String description;
 
+	@Column(name = "APPROVAL_STATUS")
+	private Integer approvalStatus;
+
+	@Column(name = "ACTIVE_FLAG")
+	private boolean activeFlag;
+
+	@Column(name = "VISIBILITY")
+	private boolean visibility;
+
+	public boolean getVisibility() {
+		return this.visibility;
+	}
+
+	public Integer getApprovalStatus() {
+		return this.approvalStatus;
+	}
+
+	public void setApprovalStatus(Integer approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
+
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
+	}
+
 	public String getName() {
 		return name;
 	}
