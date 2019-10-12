@@ -110,7 +110,7 @@ public class ExcelUtility {
 		return this.workbook;
 	}
 
-	public void closeAllResources() {
+	public void close() {
 		try {
 			this.workbook.close();
 		} catch (IOException e) {
@@ -118,7 +118,7 @@ public class ExcelUtility {
 		}
 	}
 
-	public static void writeWorkbookToFile(Workbook workbook, File file) throws FileNotFoundException, IOException {
+	public void writeWorkbookToFile(Workbook workbook, File file) throws FileNotFoundException, IOException {
 		try (FileOutputStream outputStream = new FileOutputStream(file.getAbsolutePath())) {
 			workbook.write(outputStream);
 		}
