@@ -38,4 +38,14 @@ public class UserController {
 		return modelAndView;
 	}
 
+	@GetMapping("/remove/{id}")
+	public ModelAndView removeUser(ModelAndView modelAndView, @PathVariable Long id) {
+		System.out.println("USER CONTROLLER : marking user as inactive id -> " + id);
+		UserPo userPo = baseServiceImpl.getEntityById(UserPo.class, id);
+		userPo.setApprovalStatus(1);
+		baseServiceImpl.updateEntity(userPo);
+		modelAndView.setViewName("users");
+		return modelAndView;
+	}
+
 }

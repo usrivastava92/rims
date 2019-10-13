@@ -18,13 +18,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.app.hibernate.core.entities.BaseEntity;
+import com.app.hibernate.core.entities.BaseMasterEntity;
 import com.app.hibernate.entity.UserAdditionalInfoPo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "USERS")
-public class UserPo extends BaseEntity implements UserDetails {
+public class UserPo extends BaseMasterEntity implements UserDetails {
 
 	private static final long serialVersionUID = -3788850886108135694L;
 

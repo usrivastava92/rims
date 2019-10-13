@@ -46,5 +46,8 @@ public class QueryConstants {
 	public static final String PARENT_CATEGORY_2 = "{parentCategory2}";
 	public static final String SUB_CATEGORY_1 = "{subCategory1}";
 	public static final String SUB_CATEGORY_2 = "{subCategory2}";
-
+	public static final String PARENT_ATTRIBUTE = "{parentAttribute}";
+	public static final String PRODUCT_CLASSIFICATION = "{productClassification}";
+	public static final String BRAND = "{brand}";
+	
 }

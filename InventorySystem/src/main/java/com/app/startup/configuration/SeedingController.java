@@ -1,5 +1,8 @@
 package com.app.startup.configuration;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.app.generic.utilities.ExcelUtility;
+import com.app.generic.utilities.FileUtilites;
 import com.app.hibernate.service.BaseService;
 
 @Named("seedingController")
@@ -62,19 +66,46 @@ public class SeedingController {
 
 			for (Row row : rows) {
 				String sheetName = excelUtility.getCellValue(row.getCell(0)).trim();
-				List<Row> queryRows = excelUtility.getRowList(sheetName, true);
-				for (Row queryRow : queryRows) {
-					String query = excelUtility.getCellValue(queryRow.getCell(0)).trim();
-					if (query != null && !"".equals(query)) {
+				String fileType = excelUtility.getCellValue(row.getCell(1)).trim().toUpperCase();
 
-						System.out.println("SEEDING CONTROLLER : executing ->" + query);
-						baseServiceImpl.executeQuery(query);
+				if (fileType.equals("FILE")) {
+					File productAttribute = FileUtilites.getFileFromResources("SEED_SQL/" + sheetName + ".sql");
+					try (BufferedReader br = new BufferedReader(new FileReader(productAttribute))) {
+						String query = br.readLine();
+						while (query != null) {
+							try {
+								System.out.println("SEEDING CONTROLLER : executing ->" + query);
+								baseServiceImpl.executeQuery(query.trim());
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							query = br.readLine();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} else if (fileType.equals("SHEET")) {
+					List<Row> queryRows = excelUtility.getRowList(sheetName, true);
+					for (Row queryRow : queryRows) {
+						String query = excelUtility.getCellValue(queryRow.getCell(0)).trim();
+						if (query != null && !"".equals(query)) {
+							try {
+								System.out.println("SEEDING CONTROLLER : executing ->" + query);
+								baseServiceImpl.executeQuery(query);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
 					}
 				}
-
 			}
-			System.out.println("SEEDING CONTROLLER : executing ->" + integrityEnableQuery);
-			baseServiceImpl.executeQuery(integrityEnableQuery);
+
+			try {
+				System.out.println("SEEDING CONTROLLER : executing ->" + integrityEnableQuery);
+				baseServiceImpl.executeQuery(integrityEnableQuery);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

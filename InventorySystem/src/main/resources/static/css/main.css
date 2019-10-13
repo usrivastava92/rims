@@ -126,6 +126,71 @@ body {
   outline: 0 !important;
 }
 
+
+.text--blue{
+  color: #047bf8;
+}
+.text--indigo{
+  color: #6610f2;
+}
+.text--purple{
+  color: #6f42c1;
+}
+.text--pink{
+  color: #e83e8c;
+}
+.text--red{
+  color: #e65252;
+}
+.text--orange{
+  color: #fd7e14;
+}
+.text--yellow{
+  color: #fbe4a0;
+}
+.text--green{
+  color: #24b314;
+}
+.text--teal{
+  color: #20c997;
+}
+.text--cyan{
+  color: #5bc0de;
+}
+.text--white{
+  color: #fff;
+}
+.text--gray{
+  color: #636c72;
+}
+.text--gray-dark{
+  color: #343a40;
+}
+.text--primary{
+  color: #047bf8;
+}
+.text--secondary{
+  color: #292b2c;
+}
+.text--success{
+  color: #24b314;
+}
+.text--info{
+  color: #5bc0de;
+}
+.text--warning{
+  color: #fbe4a0;
+}
+.text--danger{
+  color: #e65252;
+}
+.text--light{
+  color: #f8f9fa;
+}
+.text--dark{
+  color: #343a40;
+}
+
 hr {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;

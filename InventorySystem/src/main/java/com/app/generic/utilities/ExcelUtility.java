@@ -31,6 +31,15 @@ public class ExcelUtility {
 		}
 	}
 
+	public ExcelUtility(File file) {
+		try {
+			this.xlsFile = file;
+			this.workbook = new HSSFWorkbook(new FileInputStream(xlsFile));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public Sheet getSheet(int sheetIndex) {
 		return this.workbook.getSheetAt(sheetIndex);
 	}

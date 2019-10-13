@@ -59,10 +59,13 @@ public class MasterSeedCreator {
 				.replace(QueryConstants.PRODUCT_ID, productId).replace("'null'", "null").replace("''", "null");
 	}
 
-	public static String createProductQuery(String id, String code, String name, String description) {
+	public static String createProductQuery(String id, String code, String name, String description, String brand,
+			String productClassification) {
 		return Queries.PRODUCT.replace(QueryConstants.ID, id).replace(QueryConstants.CODE, code)
 				.replace(QueryConstants.NAME, name).replace(QueryConstants.DESCRIPTION, description)
-				.replace("'null'", "null").replace("''", "null");
+				.replace(QueryConstants.BRAND, brand)
+				.replace(QueryConstants.PRODUCT_CLASSIFICATION, productClassification).replace("'null'", "null")
+				.replace("''", "null");
 	}
 
 	public static String createProductAttributeQuery(String productId, String attributeId) {
@@ -71,10 +74,11 @@ public class MasterSeedCreator {
 	}
 
 	public static String createGenericAttributeQuery(String id, String dtype, String code, String name,
-			String description) {
+			String description, String parentAttribute) {
 		return Queries.GENERIC_ATTRIBUTE.replace(QueryConstants.ID, id).replace(QueryConstants.CODE, code)
 				.replace(QueryConstants.NAME, name).replace(QueryConstants.DESCRIPTION, description)
-				.replace(QueryConstants.DTYPE, dtype).replace("'null'", "null").replace("''", "null");
+				.replace(QueryConstants.DTYPE, dtype).replace(QueryConstants.PARENT_ATTRIBUTE, parentAttribute)
+				.replace("'null'", "null").replace("''", "null");
 	}
 
 	public static String createUsersQuery(String id, String password, String username, String userAddInfoFk) {
