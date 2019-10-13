@@ -31,6 +31,13 @@ public class SalesController {
 		return modelAndView;
 	}
 
+	@GetMapping("/dashboard")
+	public ModelAndView goToSalesDashboard(ModelAndView modelAndView) {
+		System.out.println("SALES CONTROLLER : redirecting to sales dashboard");
+		modelAndView.setViewName("sales-dashboard");
+		return modelAndView;
+	}
+
 	@GetMapping("/get/{id}")
 	public ModelAndView getSale(ModelAndView modelAndView, @PathVariable Long id) {
 		System.out.println("SALES CONTROLLER : fetching with id -> " + id);

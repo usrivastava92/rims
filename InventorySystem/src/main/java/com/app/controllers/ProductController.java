@@ -23,15 +23,23 @@ public class ProductController {
 	private BaseService baseServiceImpl;
 
 	@GetMapping()
-	public ModelAndView getAllUsers(ModelAndView modelAndView) {
+	public ModelAndView getAllProducts(ModelAndView modelAndView) {
 		System.out.println("PRODUCTS CONTROLLER : fetching all products ");
-		modelAndView.addObject("products", baseServiceImpl.getEntityList(ProductPo.class, new HashMap<>()));
+		//modelAndView.addObject("products", baseServiceImpl.getEntityList(ProductPo.class, new HashMap<>()));
+		modelAndView.setViewName("products");
+		return modelAndView;
+	}
+
+	@GetMapping("/filter")
+	public ModelAndView getFilteredProducts(ModelAndView modelAndView) {
+		System.out.println("PRODUCTS CONTROLLER : fetching all products ");
+		//modelAndView.addObject("products", baseServiceImpl.getEntityList(ProductPo.class, new HashMap<>()));
 		modelAndView.setViewName("products");
 		return modelAndView;
 	}
 
 	@GetMapping("/get/{id}")
-	public ModelAndView getUser(ModelAndView modelAndView, @PathVariable Long id) {
+	public ModelAndView getProduct(ModelAndView modelAndView, @PathVariable Long id) {
 		System.out.println("PRODUCTS CONTROLLER : fetching product with id -> " + id);
 		modelAndView.addObject("product", baseServiceImpl.getEntityById(ProductPo.class, id));
 		modelAndView.setViewName("product");
