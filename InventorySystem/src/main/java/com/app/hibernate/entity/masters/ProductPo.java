@@ -2,18 +2,18 @@ package com.app.hibernate.entity.masters;
 
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.app.hibernate.core.entities.BaseMasterEntity;
 import com.app.hibernate.entity.ProductClassificationPo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -21,11 +21,17 @@ public class ProductPo extends BaseMasterEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "PRODUCT_ATTRIBUTE", joinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "ATTRIBUTE_ID", referencedColumnName = "id"))
 	private Collection<GenericAttributePo> genericAttributes;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "VENDOR_PRODUCT", joinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "VENDOR_ID", referencedColumnName = "id"))
+	private Collection<VendorPo> vendors;
+
+	@OneToOne
 	@JoinColumn(name = "PRODUCT_CLASSIFICATION_FK")
 	private ProductClassificationPo productClassification;
 
@@ -36,10 +42,6 @@ public class ProductPo extends BaseMasterEntity {
 		return this.genericAttributes;
 
 	}
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "VENDOR_PRODUCT", joinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "VENDOR_ID", referencedColumnName = "id"))
-	private Collection<VendorPo> vendors;
 
 	public Collection<VendorPo> getVendors() {
 		return vendors;

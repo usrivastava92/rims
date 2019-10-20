@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.app.hibernate.core.entities.BaseMasterEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "GENERIC_ATTRIBUTE")
@@ -24,8 +25,8 @@ public class GenericAttributePo extends BaseMasterEntity {
 	@Column(name = "PARENT_ATTRIBUTE")
 	private String parentAttribute;
 
-	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "PRODUCT_ATTRIBUTE", joinColumns = @JoinColumn(name = "ATTRIBUTE_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"))
 	private Collection<ProductPo> products;
 
@@ -45,14 +46,12 @@ public class GenericAttributePo extends BaseMasterEntity {
 		this.parentAttribute = parentAttribute;
 	}
 
-
-	public Collection<ProductPo> getProducts(){
+	public Collection<ProductPo> getProducts() {
 		return this.products;
 	}
 
-	public void setProducts(Collection<ProductPo> products){
-		this.products=products;
+	public void setProducts(Collection<ProductPo> products) {
+		this.products = products;
 	}
-
 
 }

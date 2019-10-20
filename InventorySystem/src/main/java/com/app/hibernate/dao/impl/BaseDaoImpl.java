@@ -1,7 +1,6 @@
 package com.app.hibernate.dao.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -129,20 +128,23 @@ public class BaseDaoImpl implements BaseDao {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public List<Object[]> getEntityList(String sqlString) {
+	public <T> List<?> getListUsingHql(String hqlQuery, Class<T> entityClass) {
+		return entityManager.createQuery(hqlQuery, entityClass).getResultList();
+	}
+
+	@Override
+	public List<?> getListUsingHql(String hqlQuery) {
+		return entityManager.createQuery(hqlQuery).getResultList();
+	}
+
+	@Override
+	public List<?> getListUsingSql(String sqlString) {
 		return entityManager.createNativeQuery(sqlString).getResultList();
 	}
 
 	@Override
 	public <T> T getEntityById(Class<T> entityClass, Long id) {
-		HashMap<String, Object> whereClauseHashmap = new HashMap<>();
-		whereClauseHashmap.put("id", id);
-		List<T> entityList = getEntityList(entityClass, whereClauseHashmap);
-		if (!entityList.isEmpty()) {
-			return entityList.get(0);
-		}
-		return null;
+		return entityManager.find(entityClass, id);
 	}
 
 	@Override

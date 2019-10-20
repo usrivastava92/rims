@@ -21,7 +21,11 @@ public interface BaseDao {
 
 	public List<?> getEntityList(String namedQueryName, Map<String, Object> whereClauseMap);
 
-	public List<Object[]> getEntityList(String sqlString);
+	public List<?> getListUsingSql(String sqlString);
+
+	public <T> List<?> getListUsingHql(String hqlQuery, Class<T> entityClass);
+
+	public List<?> getListUsingHql(String hqlQuery);
 
 	public boolean executeQuery(String sqlString);
 

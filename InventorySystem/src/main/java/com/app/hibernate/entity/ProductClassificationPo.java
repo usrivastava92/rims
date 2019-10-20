@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import com.app.hibernate.core.entities.BaseEntity;
 import com.app.hibernate.entity.masters.ProductPo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "PRODUCT_CLASSIFICATION")
@@ -17,7 +18,8 @@ public class ProductClassificationPo extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "productClassification")
+    @JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "productClassification")
     private Collection<ProductPo> products;
 
     @Column(name = "PARENT_CATEGORY1")

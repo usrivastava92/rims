@@ -87,14 +87,26 @@ public class BaseServiceImpl implements BaseService {
 
 	@Override
 	@Transactional
-	public List<Object[]> getEntityList(String sqlString) {
-		return daoImpl.getEntityList(sqlString);
+	public List<?> getListUsingSql(String sqlString) {
+		return daoImpl.getListUsingSql(sqlString);
 	}
 
 	@Override
 	@Transactional
 	public <T> T getEntityById(Class<T> entityClass, Long id) {
 		return daoImpl.getEntityById(entityClass, id);
+	}
+
+	@Override
+	@Transactional
+	public <T> List<?> getListUsingHql(String hqlQuery, Class<T> entityClass) {
+		return daoImpl.getListUsingHql(hqlQuery, entityClass);
+	}
+
+	@Override
+	@Transactional
+	public List<?> getListUsingHql(String hqlQuery) {
+		return daoImpl.getListUsingHql(hqlQuery);
 	}
 
 	@Override

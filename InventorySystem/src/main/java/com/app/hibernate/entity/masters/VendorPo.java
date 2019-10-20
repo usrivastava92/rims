@@ -16,20 +16,13 @@ import javax.persistence.Table;
 import com.app.hibernate.core.entities.BaseMasterEntity;
 import com.app.hibernate.entity.BankDetailsPo;
 import com.app.hibernate.entity.ContactInfoPo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "VENDOR")
 public class VendorPo extends BaseMasterEntity {
-	
+
 	private static final long serialVersionUID = 1L;
-
-	public BankDetailsPo getBankDetails() {
-		return bankDetails;
-	}
-
-	public void setBankDetails(BankDetailsPo bankDetails) {
-		this.bankDetails = bankDetails;
-	}
 
 	@Column(name = "GST_NUMBER", nullable = false, unique = true)
 	private String gstNumber;
@@ -41,13 +34,19 @@ public class VendorPo extends BaseMasterEntity {
 	@OneToOne
 	@JoinColumn(name = "BANK_DETAILS", referencedColumnName = "id")
 	private BankDetailsPo bankDetails;
-	
+
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "VENDOR_PRODUCT", joinColumns = @JoinColumn(name = "VENDOR_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id"))
 	private Collection<ProductPo> products;
-	
-	
-	
+
+	public BankDetailsPo getBankDetails() {
+		return bankDetails;
+	}
+
+	public void setBankDetails(BankDetailsPo bankDetails) {
+		this.bankDetails = bankDetails;
+	}
 
 	public String getGstNumber() {
 		return gstNumber;
