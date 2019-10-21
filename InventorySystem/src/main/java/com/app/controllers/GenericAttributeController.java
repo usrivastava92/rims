@@ -1,6 +1,7 @@
 package com.app.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -8,10 +9,12 @@ import javax.inject.Named;
 import com.app.hibernate.entity.masters.GenericAttributePo;
 import com.app.hibernate.service.BaseService;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,12 +26,16 @@ public class GenericAttributeController {
 	private BaseService baseServiceImpl;
 
 	@GetMapping()
-	public ModelAndView getAllUsers(ModelAndView modelAndView) {
-		System.out.println("GENERIC ATTRIBUTE CONTROLLER : fetching all generic attributes ");
-		modelAndView.addObject("genericAttributes",
-				baseServiceImpl.getEntityList(GenericAttributePo.class, new HashMap<>()));
+	public ModelAndView toGenericAttributes(ModelAndView modelAndView) {
 		modelAndView.setViewName("genericAttributes");
 		return modelAndView;
+	}
+
+	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<GenericAttributePo> getAllGenericAttributes() {
+		System.out.println("GENERIC ATTRIBUTE CONTROLLER : fetching all generic attributes ");
+		return baseServiceImpl.getEntityList(GenericAttributePo.class, new HashMap<>());
 	}
 
 	@GetMapping("/get/{id}")

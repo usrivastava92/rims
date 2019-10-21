@@ -3,6 +3,8 @@ package com.app.startup.configuration;
 
 import java.util.Properties;
 
+import com.app.controllers.IndexController;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
@@ -12,12 +14,11 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.servlet.mvc.UrlFilenameViewController;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
-
-import com.app.controllers.IndexController;
 
 @Configuration
 public class SpringViewConfig implements WebMvcConfigurer {
@@ -53,6 +54,7 @@ public class SpringViewConfig implements WebMvcConfigurer {
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver());
 		templateEngine.addDialect(new SpringSecurityDialect());
+		templateEngine.addDialect(new Java8TimeDialect());
 		return templateEngine;
 	}
 

@@ -26,133 +26,8 @@
 
 <body class="menu-position-side menu-side-left full-screen">
   <div class="all-wrapper solid-bg-all">
-    <div class="search-with-suggestions-w">
-      <div class="search-with-suggestions-modal">
-        <div class="element-search">
-          <input class="search-suggest-input" placeholder="Start typing to search..." type="text">
-          <div class="close-search-suggestions">
-            <i class="os-icon os-icon-x"></i>
-          </div>
-          </input>
-        </div>
-        <div class="search-suggestions-group">
-          <div class="ssg-header">
-            <div class="ssg-icon">
-              <div class="os-icon os-icon-box"></div>
-            </div>
-            <div class="ssg-name">
-              Projects
-            </div>
-            <div class="ssg-info">
-              24 Total
-            </div>
-          </div>
-          <div class="ssg-content">
-            <div class="ssg-items ssg-items-boxed">
-              <a class="ssg-item" href="users_profile_big.html">
-                <div class="item-media" style="background-image: url(/assets/img/company6.png)"></div>
-                <div class="item-name">
-                  Integ<span>ration</span> with API
-                </div>
-              </a><a class="ssg-item" href="users_profile_big.html">
-                <div class="item-media" style="background-image: url(/assets/img/company7.png)"></div>
-                <div class="item-name">
-                  Deve<span>lopm</span>ent Project
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="search-suggestions-group">
-          <div class="ssg-header">
-            <div class="ssg-icon">
-              <div class="os-icon os-icon-users"></div>
-            </div>
-            <div class="ssg-name">
-              Customers
-            </div>
-            <div class="ssg-info">
-              12 Total
-            </div>
-          </div>
-          <div class="ssg-content">
-            <div class="ssg-items ssg-items-list">
-              <a class="ssg-item" href="users_profile_big.html">
-                <div class="item-media" style="background-image: url(/assets/img/avatar1.jpg)"></div>
-                <div class="item-name">
-                  John Ma<span>yer</span>s
-                </div>
-              </a><a class="ssg-item" href="users_profile_big.html">
-                <div class="item-media"
-                  style="background-image: url(	https://scontent.fdel30-1.fna.fbcdn.net/v/t31.0-8/1397349_535172419912359_1425229961_o.jpg?_nc_cat=102&_nc_oc=AQlpiXvh8txfpfmk7p_oHv5FK1h7B02lVuRyxfRGomqI0h_iblvOrZgM2zw54h1-c70&_nc_ht=scontent.fdel30-1.fna&oh=70c3d1de4e57f3ae5ab5845fb71f8912&oe=5E2C25CD)">
-                </div>
-                <div class="item-name">
-                  Th<span>omas</span> Mullier
-                </div>
-              </a><a class="ssg-item" href="users_profile_big.html">
-                <div class="item-media"
-                  style="background-image: url(	https://scontent.fdel30-1.fna.fbcdn.net/v/t1.0-9/22489690_1344309625681439_8014554153500542429_n.jpg?_nc_cat=102&_nc_oc=AQmrIwHzIAvf6QF8df52qYZn50YJdiT4yBg_Oh167unhwLvT0WMZ2skf7vVQxA4GMt8&_nc_ht=scontent.fdel30-1.fna&oh=c6b3e2056b4aa936f9858e284c810e1d&oe=5DF0A06F)">
-                </div>
-                <div class="item-name">
-                  Kim C<span>olli</span>ns
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="search-suggestions-group">
-          <div class="ssg-header">
-            <div class="ssg-icon">
-              <div class="os-icon os-icon-folder"></div>
-            </div>
-            <div class="ssg-name">
-              Files
-            </div>
-            <div class="ssg-info">
-              17 Total
-            </div>
-          </div>
-          <div class="ssg-content">
-            <div class="ssg-items ssg-items-blocks">
-              <a class="ssg-item" href="#">
-                <div class="item-icon">
-                  <i class="os-icon os-icon-file-text"></i>
-                </div>
-                <div class="item-name">
-                  Work<span>Not</span>e.txt
-                </div>
-              </a><a class="ssg-item" href="#">
-                <div class="item-icon">
-                  <i class="os-icon os-icon-film"></i>
-                </div>
-                <div class="item-name">
-                  V<span>ideo</span>.avi
-                </div>
-              </a><a class="ssg-item" href="#">
-                <div class="item-icon">
-                  <i class="os-icon os-icon-database"></i>
-                </div>
-                <div class="item-name">
-                  User<span>Tabl</span>e.sql
-                </div>
-              </a><a class="ssg-item" href="#">
-                <div class="item-icon">
-                  <i class="os-icon os-icon-image"></i>
-                </div>
-                <div class="item-name">
-                  wed<span>din</span>g.jpg
-                </div>
-              </a>
-            </div>
-            <div class="ssg-nothing-found">
-              <div class="icon-w">
-                <i class="os-icon os-icon-eye-off"></i>
-              </div>
-              <span>No files were found. Try changing your query...</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div th:replace="fragments/top-menu-search :: top-menu-search">
+      top-menu-search
     </div>
     <div class="layout-w">
       <!--------------------
@@ -191,10 +66,7 @@
             <a href="index.html">Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="index.html">Products</a>
-          </li>
-          <li class="breadcrumb-item">
-            <span>Laptop with retina screen</span>
+            <a href="/genericattributes">Generic Attributes</a>
           </li>
         </ul>
         <!--------------------
@@ -212,14 +84,13 @@
                 <div class="form-desc">
                 </div>
                 <div class="table-responsive">
-                  <table id="dataTable1" width="100%" class="table table-striped table-lightfont">
+                  <table id="genericAttributesTable" width="100%" class="table table-striped table-lightfont">
                     <thead>
                       <tr>
-                        <th>Sno.</th>
+                        <th>Id</th>
                         <th>Code</th>
                         <th>Dtype</th>
                         <th>Name</th>
-                        <th>Description</th>
                         <th>Creation Time</th>
                         <th>Approval Status</th>
                         <th>Actions</th>
@@ -227,33 +98,34 @@
                     </thead>
                     <tfoot>
                       <tr>
-                        <th>Sno.</th>
+                        <th>Id</th>
                         <th>Code</th>
                         <th>Dtype</th>
                         <th>Name</th>
-                        <th>Description</th>
                         <th>Creation Time</th>
                         <th>Approval Status</th>
                         <th>Actions</th>
                       </tr>
                     </tfoot>
-                    <tbody>
+                    <!--<tbody>
                       <tr th:each="genericAttribute,iter : ${genericAttributes}">
                         <td th:text="${iter.count}">1</td>
-                        <td><a th:text="${genericAttribute.code}" th:href="@{'/genericattributes/get/'+${genericAttribute.id}}">Edinburgh</a></td>
+                        <td><a th:text="${genericAttribute.code}"
+                            th:href="@{'/genericattributes/get/'+${genericAttribute.id}}">Edinburgh</a></td>
                         <td th:text="${genericAttribute.dtype}">dtype</td>
                         <td th:text="${genericAttribute.name}">name</td>
                         <td th:text="${genericAttribute.description}">Nixon</td>
                         <td th:text="${genericAttribute.creationTimeStamp}">2019-10-05 15:32:27.395</td>
                         <td th:text="${genericAttribute.approvalStatus}">0</td>
-                        <td><a th:href="@{'/genericattributes/get/'+${genericAttribute.id}}"><i data-placement="top" data-toggle="tooltip"
-                              title="Edit record" class="fa text--green fa-pencil-square fa-2x"></i></a>&nbsp;<a
-                            data-placement="top" data-toggle="tooltip" title="Mark for deletion"
+                        <td><a th:href="@{'/genericattributes/get/'+${genericAttribute.id}}"><i data-placement="top"
+                              data-toggle="tooltip" title="Edit record"
+                              class="fa text--green fa-pencil-square fa-2x"></i></a>&nbsp;<a data-placement="top"
+                            data-toggle="tooltip" title="Mark for deletion"
                             th:href="@{'/genericattributes/remove/'+${genericAttribute.id}}"><i
                               class="text--orange fa fa-times-circle fa-2x"></i></a>
                         </td>
                       </tr>
-                    </tbody>
+                    </tbody>-->
                   </table>
                 </div>
               </div>
@@ -308,6 +180,73 @@
 
     ga('create', 'UA-XXXXXXX-9', 'auto');
     ga('send', 'pageview');
+  </script>
+  <script>
+    $(document).ready(function () {
+
+      var datatable = $("#genericAttributesTable").DataTable({
+        aoColumns: [
+          {
+            mDataProp: "id",
+            bSortable: true
+          },
+          {
+            mDataProp: "code",
+            bSortable: true,
+            mRender: function (data, type, row) {
+              return (
+                "<a href='/genericattributes/get/" + row.id + "'>" + data + "</a>"
+              );
+            }
+          },
+          {
+            mDataProp: "dtype",
+            bSortable: true
+          },
+          {
+            mDataProp: "name",
+            bSortable: true,
+            mRender: function (data, type, row) {
+              return (
+                data
+              );
+            }
+          },
+          {
+            mDataProp: "creationTimeStamp",
+            bSortable: true
+          },
+          {
+            mDataProp: "approvalStatus",
+            bSortable: true
+          },
+          {
+            mDataProp: "id",
+            bSortable: false,
+            mRender: function (data, type, full) {
+              return (
+                "<a href='/genericattributes/get/" +
+                data +
+                "'><i data-placement='top' data-toggle='tooltip' title='Edit record' class='fa text--green fa-pencil-square fa-2x'></i></a>&nbsp;<a data-placement='top' data-toggle='tooltip' title='Mark for deletion' href='/genericattributes/remove/" +
+                data +
+                "'><i class='text--orange fa fa-times-circle fa-2x'></i></a>"
+              );
+            }
+          }
+        ]
+      });
+
+
+      $.ajax({
+        'url': "/genericattributes/all",
+        'method': "GET",
+        'contentType': 'application/json'
+      }).done(function (data) {
+        datatable.clear().draw();
+        datatable.rows.add(data);
+        datatable.columns.adjust().draw();
+      })
+    })
   </script>
 </body>
 

@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.app.hibernate.entity.masters.ProductPo;
 import com.app.hibernate.service.BaseService;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.MediaType;
@@ -31,13 +33,12 @@ public class ProductController {
 
     @GetMapping()
     public ModelAndView getAllProducts(ModelAndView modelAndView) {
-        System.out.println("PRODUCTS CONTROLLER : fetching all products ");
         modelAndView.setViewName("products");
         return modelAndView;
     }
 
-    @PostMapping(value = "/populatefilter", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {
-            MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "/populatefilter", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
+            MediaType.APPLICATION_JSON_VALUE })
     @ResponseBody
     @SuppressWarnings("unchecked")
     public List<String> populateProductFilters(@RequestBody String requestJson) {
@@ -45,32 +46,32 @@ public class ProductController {
         try {
             JSONObject jsonObject = new JSONObject(requestJson);
             String element = jsonObject.getString("element");
-            String hqlQuery = "select distinct p." + element + " from ProductClassificationPo p ";
+            StringBuilder hqlQuery = new StringBuilder(
+                    "select distinct p." + element + " from ProductClassificationPo p ");
 
             if (jsonObject.has("filterJson")) {
                 JSONObject filterJson = jsonObject.getJSONObject("filterJson");
                 if (filterJson.length() > 0) {
-                    hqlQuery += " where ";
+                    hqlQuery.append(" where ");
                 }
                 Iterator<String> filterKeys = filterJson.keys();
                 while (filterKeys.hasNext()) {
                     String key = filterKeys.next();
-                    hqlQuery += key + "='" + filterJson.get(key).toString().replace("'", "''") + "' ";
+                    hqlQuery.append(key + "='" + filterJson.get(key).toString().replace("'", "''") + "' ");
                     if (filterKeys.hasNext()) {
-                        hqlQuery += "and ";
+                        hqlQuery.append("and ");
                     }
                 }
             }
-            return (List<String>) baseServiceImpl.getListUsingHql(hqlQuery);
+            return (List<String>) baseServiceImpl.getListUsingHql(hqlQuery.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-
-    @PostMapping(value = "/filter", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {
-            MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "/filter", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
+            MediaType.APPLICATION_JSON_VALUE })
     @ResponseBody
     @SuppressWarnings("unchecked")
     public List<ProductPo> getFilteredProducts(@RequestBody String requestJson) {
@@ -78,17 +79,20 @@ public class ProductController {
         try {
             JSONObject filterJson = new JSONObject(requestJson);
             if (filterJson.length() > 0) {
-                String classificationQuery = "select p.id from ProductClassificationPo p where ";
+                StringBuilder classificationQuery = new StringBuilder(
+                        "select p.id from ProductClassificationPo p where ");
                 Iterator<String> filterKeys = filterJson.keys();
                 while (filterKeys.hasNext()) {
                     String key = filterKeys.next();
-                    classificationQuery += "p." + key + "='" + filterJson.get(key).toString().replace("'", "''") + "' ";
+                    classificationQuery
+                            .append("p." + key + "='" + filterJson.get(key).toString().replace("'", "''") + "' ");
                     if (filterKeys.hasNext()) {
-                        classificationQuery += "and ";
+                        classificationQuery.append("and ");
                     }
                 }
 
-                List<Long> productClassificationIds = (List<Long>) baseServiceImpl.getListUsingHql(classificationQuery);
+                List<Long> productClassificationIds = (List<Long>) baseServiceImpl
+                        .getListUsingHql(classificationQuery.toString());
 
                 if (!productClassificationIds.isEmpty()) {
                     Map<String, Object> whereClauseMap = new HashMap<>();
