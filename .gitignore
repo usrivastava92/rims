@@ -1,7 +1,7 @@
-/Users/utkarshsrivastava/git/InventoryManagement/Rims/.idea/*
-/Users/utkarshsrivastava/git/InventoryManagement/Rims/.project
-/Users/utkarshsrivastava/git/InventoryManagement/Rims/.settings/*
-/Users/utkarshsrivastava/git/InventoryManagement/Rims/.vscode/*
-/Users/utkarshsrivastava/git/InventoryManagement/Rims/target
-/Users/utkarshsrivastava/git/InventoryManagement/Rims/.classpath/
-/Users/utkarshsrivastava/git/InventoryManagement/Rims/.git/*
+.idea/*
+.project
+.settings/*
+.vscode/*
+target
+.classpath/
+.git/*
