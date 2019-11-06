@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Temp",
+            "request": "launch",
+            "mainClass": "com.app.generic.utilities.Temp",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InventorySystemWebapp",
+            "request": "launch",
+            "mainClass": "com.app.InventorySystemWebapp",
+            "projectName": "app"
+        }
+    ]
+}
