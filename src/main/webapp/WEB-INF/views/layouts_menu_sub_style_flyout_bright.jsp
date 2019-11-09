@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
   <head>
-<th:block th:include="fragments/common-head.html :: common-head">
-  </th:block>
+<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
   </head>
   <body class="menu-position-side menu-side-left full-screen">
     <div class="all-wrapper solid-bg-all">
@@ -154,12 +153,12 @@
             <div class="logged-user-i">
               <div class="avatar-w">
                 <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                  <span class="text-capitalize" >${userPo.username}</span>
                 </div>
                 <div class="logged-user-role">
                   Administrator
@@ -172,12 +171,12 @@
                 <div class="logged-user-avatar-info">
                   <div class="avatar-w">
                     <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                   </div>
                   <div class="logged-user-info-w">
                     <div class="logged-user-name">
-                      <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                      <span class="text-capitalize" >${userPo.username}</span>
                     </div>
                     <div class="logged-user-role">
                       Administrator
@@ -222,12 +221,12 @@
                     <a href="#">
                       <div class="user-avatar-w">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                       </div>
                       <div class="message-content">
                         <h6 class="message-from">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <h6 class="message-title">
                           Account Update
@@ -329,12 +328,12 @@
                     <a href="#">
                       <div class="user-avatar-w">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                       </div>
                       <div class="message-content">
                         <h6 class="message-from">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <h6 class="message-title">
                           Account Update
@@ -1045,8 +1044,8 @@
                               <td>
                                 <div class="user-with-avatar">
                                   <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
-        </security:authentication><span class="d-none d-xl-inline-block"><span class="text-capitalize" sec:authentication="name">Anonymous</span></span>
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
+        </security:authentication><span class="d-none d-xl-inline-block"><span class="text-capitalize" >${userPo.username}</span></span>
                                 </div>
                               </td>
                               <td class="text-center">
@@ -1235,8 +1234,8 @@
                               <td>
                                 <div class="user-with-avatar">
                                   <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
-        </security:authentication><span><span class="text-capitalize" sec:authentication="name">Anonymous</span></span>
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
+        </security:authentication><span><span class="text-capitalize" >${userPo.username}</span></span>
                                 </div>
                               </td>
                               <td>
@@ -1318,7 +1317,7 @@
                               <td>
                                 <div class="user-with-avatar">
                                   <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication><span>Phil Collins</span>
                                 </div>
                               </td>
@@ -1574,13 +1573,13 @@
                       <div class="user-avatar-w">
                         <div class="user-avatar">
                           <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <div class="user-role">
                           Account Manager

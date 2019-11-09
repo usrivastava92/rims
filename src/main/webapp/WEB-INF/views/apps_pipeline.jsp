@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
   <head>
-<th:block th:include="fragments/common-head.html :: common-head">
-  </th:block>
+<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
     <link href="/assets/bower_components/dragula.js/dist/dragula.min.css" rel="stylesheet">
   </head>
   <body class="menu-position-side menu-side-left full-screen">
@@ -155,12 +154,12 @@
             <div class="logged-user-i">
               <div class="avatar-w">
                 <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                  <span class="text-capitalize" >${userPo.username}</span>
                 </div>
                 <div class="logged-user-role">
                   Administrator
@@ -173,12 +172,12 @@
                 <div class="logged-user-avatar-info">
                   <div class="avatar-w">
                     <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                   </div>
                   <div class="logged-user-info-w">
                     <div class="logged-user-name">
-                      <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                      <span class="text-capitalize" >${userPo.username}</span>
                     </div>
                     <div class="logged-user-role">
                       Administrator
@@ -223,12 +222,12 @@
                     <a href="#">
                       <div class="user-avatar-w">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                       </div>
                       <div class="message-content">
                         <h6 class="message-from">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <h6 class="message-title">
                           Account Update
@@ -330,12 +329,12 @@
                     <a href="#">
                       <div class="user-avatar-w">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                       </div>
                       <div class="message-content">
                         <h6 class="message-from">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <h6 class="message-title">
                           Account Update
@@ -961,12 +960,12 @@
                       <a href="#">
                         <div class="user-avatar-w">
                           <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                         <div class="message-content">
                           <h6 class="message-from">
-                            <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                            <span class="text-capitalize" >${userPo.username}</span>
                           </h6>
                           <h6 class="message-title">
                             Account Update
@@ -1058,19 +1057,19 @@
                 <div class="logged-user-i">
                   <div class="avatar-w">
                     <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                   </div>
                   <div class="logged-user-menu color-style-bright">
                     <div class="logged-user-avatar-info">
                       <div class="avatar-w">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                       </div>
                       <div class="logged-user-info-w">
                         <div class="logged-user-name">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </div>
                         <div class="logged-user-role">
                           Administrator
@@ -1216,7 +1215,7 @@
                           <div class="pi-body">
                             <div class="avatar">
                               <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                             </div>
                             <div class="pi-info">
@@ -1224,7 +1223,7 @@
                                 Better Pharmacy
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1271,7 +1270,7 @@
                                 Goldman
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1318,7 +1317,7 @@
                                 Bosing Corp
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1411,7 +1410,7 @@
                                 Fennel Inc
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1452,7 +1451,7 @@
                           <div class="pi-body">
                             <div class="avatar">
                               <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                             </div>
                             <div class="pi-info">
@@ -1460,7 +1459,7 @@
                                 Zillow Farm
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1553,7 +1552,7 @@
                                 Corpus Comp
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1599,7 +1598,7 @@
                                 Boiling Roast
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1646,7 +1645,7 @@
                                 Ketchup Farm
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1693,7 +1692,7 @@
                                 Milk Parade
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1733,7 +1732,7 @@
                           <div class="pi-body">
                             <div class="avatar">
                               <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                             </div>
                             <div class="pi-info">
@@ -1741,7 +1740,7 @@
                                 Better Pharmacy
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1835,7 +1834,7 @@
                                 Borgia Lime
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1882,7 +1881,7 @@
                                 Key Stone
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -1929,7 +1928,7 @@
                                 Faradey Corp
                               </div>
                               <div class="pi-sub">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </div>
                             </div>
                           </div>
@@ -2120,13 +2119,13 @@
                       <div class="user-avatar-w">
                         <div class="user-avatar">
                           <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <div class="user-role">
                           Account Manager

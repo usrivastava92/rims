@@ -192,7 +192,7 @@
                     </div>
                     <div class="up-main-info">
                       <h2 class="up-header">
-                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                        <span class="text-capitalize" >${userPo.username}</span>
                       </h2>
                       <h6 class="up-sub-header">
                         Product Designer at Facebook
@@ -686,13 +686,13 @@
                     <div class="user-avatar-w">
                       <div class="user-avatar">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <div class="user-role">
                           Account Manager
@@ -751,11 +751,11 @@
                     <a class="profile-tile-box" href="users_profile_small.html">
                       <div class="pt-avatar-w">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                       </div>
                       <div class="pt-user-name">
-                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                        <span class="text-capitalize" >${userPo.username}</span>
                       </div>
                     </a>
                     <div class="profile-tile-meta">
@@ -819,13 +819,13 @@
                       <div class="user-avatar-w">
                         <div class="user-avatar">
                           <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <div class="user-role">
                           Account Manager

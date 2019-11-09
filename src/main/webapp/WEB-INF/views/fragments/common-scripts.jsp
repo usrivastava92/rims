@@ -29,3 +29,4 @@
 <script src="/assets/bower_components/bootstrap/js/dist/popover.js"></script>
 <script src="/assets/js/demo_customizer.js?version=4.4.0"></script>
 <script src="/assets/js/main.js?version=4.4.0"></script>
+<script src="/assets/js/dataTables.bootstrap4.min.js"></script>

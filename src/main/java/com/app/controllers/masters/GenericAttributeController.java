@@ -27,7 +27,7 @@ public class GenericAttributeController {
 
 	@GetMapping()
 	public ModelAndView toGenericAttributes(ModelAndView modelAndView) {
-		modelAndView.setViewName("masters/generic-attributes/genericAttributes");
+		modelAndView.setViewName("masters/generic-attributes/genericattributes");
 		return modelAndView;
 	}
 

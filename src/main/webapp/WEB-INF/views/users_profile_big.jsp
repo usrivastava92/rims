@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
   <head>
-<th:block th:include="fragments/common-head.html :: common-head">
-  </th:block>
+<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
   </head>
   <body class="menu-position-side menu-side-left full-screen with-content-panel">
     <div class="all-wrapper with-side-panel solid-bg-all">
@@ -186,12 +185,12 @@
                       <div class="user-avatar-w">
                         <div class="user-avatar">
                           <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                       </div>
                       <h1 class="up-header">
-                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                        <span class="text-capitalize" >${userPo.username}</span>
                       </h1>
                       <h5 class="up-sub-header">
                         Product Designer at Facebook
@@ -610,13 +609,13 @@
                       <div class="user-avatar-w">
                         <div class="user-avatar">
                           <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <div class="user-role">
                           Account Manager
@@ -675,11 +674,11 @@
                     <a class="profile-tile-box" href="users_profile_small.html">
                       <div class="pt-avatar-w">
                         <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                       </div>
                       <div class="pt-user-name">
-                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                        <span class="text-capitalize" >${userPo.username}</span>
                       </div>
                     </a>
                     <div class="profile-tile-meta">
@@ -743,13 +742,13 @@
                       <div class="user-avatar-w">
                         <div class="user-avatar">
                           <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <div class="user-role">
                           Account Manager

@@ -119,37 +119,7 @@
     </div>
     <div class="display-type"></div>
   </div>
-  <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/assets/bower_components/popper.js/dist/umd/popper.min.js"></script>
-  <script src="/assets/bower_components/moment/moment.js"></script>
-  <script src="/assets/bower_components/chart.js/dist/Chart.min.js"></script>
-  <script src="/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
-  <script src="/assets/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
-  <script src="/assets/bower_components/ckeditor/ckeditor.js"></script>
-  <script src="/assets/bower_components/bootstrap-validator/dist/validator.min.js"></script>
-  <script src="/assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script src="/assets/bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
-  <script src="/assets/bower_components/dropzone/dist/dropzone.js"></script>
-  <script src="/assets/bower_components/editable-table/mindmup-editabletable.js"></script>
-  <script src="/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-  <script src="/assets/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-  <script src="/assets/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-  <script src="/assets/bower_components/tether/dist/js/tether.min.js"></script>
-  <script src="/assets/bower_components/slick-carousel/slick/slick.min.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/util.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/alert.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/button.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/carousel.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/collapse.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/dropdown.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/modal.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/tab.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/tooltip.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/popover.js"></script>
-  <script src="/assets/js/dataTables.bootstrap4.min.js"></script>
-  <script src="/assets/js/demo_customizer.js?version=4.4.0"></script>
-  <script src="/assets/js/main.js?version=4.4.0"></script>
+  <c:import url="/WEB-INF/views/fragments/common-scripts.jsp"></c:import>
   <script>
     (function (i, s, o, g, r, a, m) {
       i["GoogleAnalyticsObject"] = r;
@@ -239,11 +209,13 @@
         aoColumns: [
           {
             mDataProp: "id",
+            sWidth: "5%",
             bSortable: true
           },
           {
             mDataProp: "code",
             bSortable: true,
+            sWidth: "10%",
             mRender: function (data, type, row) {
               return (
                 "<a href='/products/get/" + row.id + "'>" + data + "</a>"
@@ -252,11 +224,13 @@
           },
           {
             mDataProp: "name",
+            sWidth: "45%",
             bSortable: true
           },
           {
             mDataProp: "creationTimeStamp",
             bSortable: true,
+            sWidth: "20%",
             mRender: function (data, type, row) {
               return (
                 data
@@ -265,11 +239,13 @@
           },
           {
             mDataProp: "approvalStatus",
+            sWidth: "10%",
             bSortable: true
           },
           {
             mDataProp: "id",
             bSortable: false,
+            sWidth: "10%",
             mRender: function (data, type, full) {
               return (
                 "<a href='/product/get/" +

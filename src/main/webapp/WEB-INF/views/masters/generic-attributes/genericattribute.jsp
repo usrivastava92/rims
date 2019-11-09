@@ -4,24 +4,24 @@
   xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <head>
-<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
+  <c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
 </head>
 
 <body class="menu-position-side menu-side-left full-screen">
   <div class="all-wrapper solid-bg-all">
-<c:import url="/WEB-INF/views/fragments/top-menu-search.jsp"></c:import>
+    <c:import url="/WEB-INF/views/fragments/top-menu-search.jsp"></c:import>
     <div class="layout-w">
       <!--------------------
         START - Mobile Menu
         -------------------->
-        <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
+      <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
       <!--------------------
         END - Mobile Menu
         -------------------->
       <!--------------------
         START - Main Menu
         -------------------->
-<c:import url="/WEB-INF/views/fragments/side-menu.jsp"></c:import>
+      <c:import url="/WEB-INF/views/fragments/side-menu.jsp"></c:import>
       <!--------------------
         END - Main Menu
         -------------------->
@@ -29,7 +29,7 @@
         <!--------------------
           START - Top Bar
           -------------------->
-<c:import url="/WEB-INF/views/fragments/top-menu.jsp"></c:import>
+        <c:import url="/WEB-INF/views/fragments/top-menu.jsp"></c:import>
         <!--------------------
           END - Top Bar
           -------------------->
@@ -97,7 +97,7 @@
                 </div>
               </div>
             </div>
-<c:import url="/WEB-INF/views/fragments/overdraw-elements.jsp"></c:import>
+            <c:import url="/WEB-INF/views/fragments/overdraw-elements.jsp"></c:import>
           </div>
         </div>
       </div>

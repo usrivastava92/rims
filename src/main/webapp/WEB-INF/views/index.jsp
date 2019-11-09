@@ -9,169 +9,12 @@
 
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
   <div class="all-wrapper with-side-panel solid-bg-all">
-    <!--add show-on-load class to below modal to make the modal appear on page load-->
-    <div aria-hidden="true" class="onboarding-modal modal fade animated " role="dialog" tabindex="-1">
-      <div class="modal-dialog modal-centered" role="document">
-        <div class="modal-content text-center">
-          <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Skip
-              Intro</span><span class="os-icon os-icon-close"></span></button>
-          <div class="onboarding-slider-w">
-            <div class="onboarding-slide">
-              <div class="onboarding-media">
-                <img alt="" src="/assets/img/bigicon2.png" width="200px">
-              </div>
-              <div class="onboarding-content with-gradient">
-                <h4 class="onboarding-title">
-                  Example of onboarding screen!
-                </h4>
-                <div class="onboarding-text">
-                  This is an example of a multistep onboarding screen, you can use it to introduce your customers to
-                  your app, or collect additional information from them before they start using your app.
-                </div>
-              </div>
-            </div>
-            <div class="onboarding-slide">
-              <div class="onboarding-media">
-                <img alt="" src="/assets/img/bigicon5.png" width="200px">
-              </div>
-              <div class="onboarding-content with-gradient">
-                <h4 class="onboarding-title">
-                  Example Request Information
-                </h4>
-                <div class="onboarding-text">
-                  In this example you can see a form where you can request some additional information from the customer
-                  when they land on the app page.
-                </div>
-                <form>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="">Your Full Name</label><input class="form-control"
-                          placeholder="Enter your full name..." type="text" value="">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="">Your Role</label><select class="form-control">
-                          <option>
-                            Web Developer
-                          </option>
-                          <option>
-                            Business Owner
-                          </option>
-                          <option>
-                            Other
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="onboarding-slide">
-              <div class="onboarding-media">
-                <img alt="" src="/assets/img/bigicon6.png" width="200px">
-              </div>
-              <div class="onboarding-content with-gradient">
-                <h4 class="onboarding-title">
-                  Showcase App Features
-                </h4>
-                <div class="onboarding-text">
-                  In this example you can showcase some of the features of your application, it is very handy to make
-                  new users aware of your hidden features. You can use boostrap columns to split them up.
-                </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <ul class="features-list">
-                      <li>
-                        Fully Responsive design
-                      </li>
-                      <li>
-                        Pre-built app layouts
-                      </li>
-                      <li>
-                        Incredible Flexibility
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-6">
-                    <ul class="features-list">
-                      <li>
-                        Boxed & Full Layouts
-                      </li>
-                      <li>
-                        Based on Bootstrap 4
-                      </li>
-                      <li>
-                        Developer Friendly
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <c:import url="/WEB-INF/views/fragments/top-menu-search.jsp"></c:import>
     <div class="layout-w">
       <!--------------------
         START - Mobile Menu
         -------------------->
-      <div class="menu-mobile menu-activated-on-click color-scheme-dark">
-        <div class="mm-logo-buttons-w">
-          <a class="mm-logo" href="index.html"><img src="/assets/img/logo.png">
-            <fmt:message key="application.name" /></a>
-          <div class="mm-buttons">
-            <div class="content-panel-open">
-              <div class="os-icon os-icon-grid-circles"></div>
-            </div>
-            <div class="mobile-menu-trigger">
-              <div class="os-icon os-icon-hamburger-menu-1"></div>
-            </div>
-          </div>
-        </div>
-        <div class="menu-and-user">
-          <div class="logged-user-w">
-            <div class="avatar-w">
-              <security:authorize access="isAuthenticated()">
-                <security:authentication var="userPo" property="principal" />
-                <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}">
-              </security:authorize>
-            </div>
-            <div class="logged-user-info-w">
-              <div class="logged-user-name">
-                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
-              </div>
-              <div class="logged-user-role">
-                Administrator
-              </div>
-            </div>
-          </div>
-          <!--------------------
-            START - Mobile Menu List
-            -------------------->
-          <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
-          <!--------------------
-            END - Mobile Menu List
-            -------------------->
-          <div class="mobile-menu-magic">
-            <h4>
-              Light Admin
-            </h4>
-            <p>
-              Clean Bootstrap 4 Template
-            </p>
-            <div class="btn-w">
-              <a class="btn btn-white btn-rounded"
-                href="https://themeforest.net/item/light-admin-clean-bootstrap-dashboard-html-template/19760124?ref=Osetin"
-                target="_blank">Purchase Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
       <!--------------------
         END - Mobile Menu
         -------------------->
@@ -195,13 +38,10 @@
           -------------------->
         <ul class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">Home</a>
+            <a href="#">Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="index.html">Products</a>
-          </li>
-          <li class="breadcrumb-item">
-            <span>Laptop with retina screen</span>
+            <a href="index.html">Dashboard</a>
           </li>
         </ul>
         <!--------------------
@@ -320,7 +160,7 @@
                         <tbody>
                           <tr>
                             <td class="nowrap">
-                              <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                              <span class="text-capitalize">${userPo.username}</span>
                             </td>
                             <td>
                               <div class="cell-image-list">
@@ -782,7 +622,7 @@
                               <input class="form-control" type="checkbox">
                             </td>
                             <td>
-                              <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                              <span class="text-capitalize">${userPo.username}</span>
                             </td>
                             <td>
                               <img alt="" src="/assets/img/flags-icons/us.png" width="25px">
@@ -985,7 +825,7 @@
                       </security:authorize>
                     </div>
                     <div class="pt-user-name">
-                      <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                      <span class="text-capitalize">${userPo.username}</span>
                     </div>
                   </a>
                   <div class="profile-tile-meta">
@@ -1059,7 +899,7 @@
                       </div>
                       <div class="activity-info">
                         <div class="activity-role">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize">${userPo.username}</span>
                         </div>
                         <strong class="activity-title">Opened New Account</strong>
                       </div>
@@ -1144,7 +984,7 @@
                     </div>
                     <div class="user-name">
                       <h6 class="user-title">
-                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                        <span class="text-capitalize">${userPo.username}</span>
                       </h6>
                       <div class="user-role">
                         Account Manager

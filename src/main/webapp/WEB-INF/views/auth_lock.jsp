@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
   <head>
-<th:block th:include="fragments/common-head.html :: common-head">
-  </th:block>
+<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
   </head>
   <body class="auth-wrapper">
     <div class="all-wrapper menu-side with-pattern">
@@ -18,11 +17,11 @@
         <div class="logged-user-w">
           <div class="avatar-w">
             <security:authentication var="profilePicUrl" property="principal.userAdditionalInfoPo.profileImageLink">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" onerror="this.src='img/avatar1.jpg'">
         </security:authentication>
           </div>
           <div class="logged-user-name">
-            <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+            <span class="text-capitalize" >${userPo.username}</span>
           </div>
           <div class="logged-user-role">
             Administrator

@@ -137,11 +137,11 @@
         <div class="menu-and-user">
           <div class="logged-user-w">
             <div class="avatar-w">
-              <img alt="" src="${profilePicUrl}">
+              <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}">
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                  <span class="text-capitalize" >${userPo.username}</span>
                 </div>
                 <div class="logged-user-role">
                   Administrator
@@ -315,7 +315,7 @@
                           <tbody>
                             <tr>
                               <td class="nowrap">
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </td>
                               <td>
                                 <div class="cell-image-list">
@@ -772,7 +772,7 @@
                                 <input class="form-control" type="checkbox">
                               </td>
                               <td>
-                                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                                <span class="text-capitalize" >${userPo.username}</span>
                               </td>
                               <td>
                                 <img alt="" src="/assets/img/flags-icons/us.png" width="25px">
@@ -956,10 +956,10 @@
                   <div class="profile-tile">
                     <a class="profile-tile-box" href="users_profile_small.html">
                       <div class="pt-avatar-w">
-                        <img alt="" src="${profilePicUrl}" >
+                        <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}" >
                       </div>
                       <div class="pt-user-name">
-                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                        <span class="text-capitalize" >${userPo.username}</span>
                       </div>
                     </a>
                     <div class="profile-tile-meta">
@@ -1024,11 +1024,11 @@
                       </div>
                       <div class="activity-box">
                         <div class="activity-avatar">
-                          <img alt="" src="${profilePicUrl}">
+                          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}">
                         </div>
                         <div class="activity-info">
                           <div class="activity-role">
-                            <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                            <span class="text-capitalize" >${userPo.username}</span>
                           </div>
                           <strong class="activity-title">Opened New Account</strong>
                         </div>
@@ -1102,12 +1102,12 @@
                     <div class="user-w with-status status-green">
                       <div class="user-avatar-w">
                         <div class="user-avatar">
-                          <img alt="" src="${profilePicUrl}">
+                          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}">
                         </div>
                       </div>
                       <div class="user-name">
                         <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                          <span class="text-capitalize" >${userPo.username}</span>
                         </h6>
                         <div class="user-role">
                           Account Manager

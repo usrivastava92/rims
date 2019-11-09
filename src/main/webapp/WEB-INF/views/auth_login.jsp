@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
   <head>
-<th:block th:include="fragments/common-head.html :: common-head">
-  </th:block>
+<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
   </head>
   <body class="auth-wrapper">
     <div class="all-wrapper menu-side with-pattern">

@@ -4,24 +4,24 @@
   xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <head>
-<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
+  <c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
 </head>
 
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
   <div class="all-wrapper with-side-panel solid-bg-all">
-<c:import url="/WEB-INF/views/fragments/top-menu-search.jsp"></c:import>
+    <c:import url="/WEB-INF/views/fragments/top-menu-search.jsp"></c:import>
     <div class="layout-w">
       <!--------------------
         START - Mobile Menu
         -------------------->
-        <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
+      <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
       <!--------------------
         END - Mobile Menu
         -------------------->
       <!--------------------
         START - Main Menu
         -------------------->
-<c:import url="/WEB-INF/views/fragments/side-menu.jsp"></c:import>
+      <c:import url="/WEB-INF/views/fragments/side-menu.jsp"></c:import>
       <!--------------------
         END - Main Menu
         -------------------->
@@ -29,7 +29,7 @@
         <!--------------------
           START - Top Bar
           -------------------->
-<c:import url="/WEB-INF/views/fragments/top-menu.jsp"></c:import>
+        <c:import url="/WEB-INF/views/fragments/top-menu.jsp"></c:import>
         <!--------------------
           END - Top Bar
           -------------------->
@@ -535,67 +535,71 @@
                     <div class="user-avatar-w">
                       <div class="user-avatar">
                         <!---->
-                        <img alt="" src="${profilePicUrl}"  >
-                        </div>
-                      </div>
-                      <div class="user-name">
-                        <h6 class="user-title">
-                          <span class="text-capitalize" sec:authentication="name">Anonymous</span>
-                        </h6>
-                        <div class="user-role">
-                          Account Manager
-                        </div>
+                        <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}">
                       </div>
                     </div>
-                  </div>
-                  <div class="chat-messages">
-                    <div class="message">
-                      <div class="message-content">
-                        Hi, how can I help you?
+                    <div class="user-name">
+                      <h6 class="user-title">
+                        <span class="text-capitalize">${userPo.username}</span>
+                      </h6>
+                      <div class="user-role">
+                        Account Manager
                       </div>
-                    </div>
-                    <div class="date-break">
-                      Mon 10:20am
-                    </div>
-                    <div class="message">
-                      <div class="message-content">
-                        Hi, my name is Mike, I will be happy to assist you
-                      </div>
-                    </div>
-                    <div class="message self">
-                      <div class="message-content">
-                        Hi, I tried ordering this product and it keeps showing me error code.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="chat-controls">
-                    <input class="message-input" placeholder="Type your message here..." type="text">
-                    <div class="chat-extra">
-                      <a href="#"><span class="extra-tooltip">Attach Document</span><i class="os-icon os-icon-documents-07"></i></a><a href="#"><span class="extra-tooltip">Insert Photo</span><i class="os-icon os-icon-others-29"></i></a><a href="#"><span class="extra-tooltip">Upload Video</span><i class="os-icon os-icon-ui-51"></i></a>
                     </div>
                   </div>
                 </div>
+                <div class="chat-messages">
+                  <div class="message">
+                    <div class="message-content">
+                      Hi, how can I help you?
+                    </div>
+                  </div>
+                  <div class="date-break">
+                    Mon 10:20am
+                  </div>
+                  <div class="message">
+                    <div class="message-content">
+                      Hi, my name is Mike, I will be happy to assist you
+                    </div>
+                  </div>
+                  <div class="message self">
+                    <div class="message-content">
+                      Hi, I tried ordering this product and it keeps showing me error code.
+                    </div>
+                  </div>
+                </div>
+                <div class="chat-controls">
+                  <input class="message-input" placeholder="Type your message here..." type="text">
+                  <div class="chat-extra">
+                    <a href="#"><span class="extra-tooltip">Attach Document</span><i
+                        class="os-icon os-icon-documents-07"></i></a><a href="#"><span class="extra-tooltip">Insert
+                        Photo</span><i class="os-icon os-icon-others-29"></i></a><a href="#"><span
+                        class="extra-tooltip">Upload Video</span><i class="os-icon os-icon-ui-51"></i></a>
+                  </div>
+                </div>
               </div>
-              <!--------------------
+            </div>
+            <!--------------------
               END - Chat Popup Box
               -------------------->
-            </div>
           </div>
         </div>
       </div>
-      <div class="display-type"></div>
     </div>
-      <c:import url="/WEB-INF/views/fragments/common-scripts.jsp"></c:import>
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    <div class="display-type"></div>
+  </div>
+  <c:import url="/WEB-INF/views/fragments/common-scripts.jsp"></c:import>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-XXXXXXX-9', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </body>
+    ga('create', 'UA-XXXXXXX-9', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
 </html>

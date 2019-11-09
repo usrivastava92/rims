@@ -173,12 +173,13 @@
             <div class="user-w with-status status-green">
                 <div class="user-avatar-w">
                     <div class="user-avatar">
-                        <img alt="" src="${profilePicUrl}" onerror="this.src='/assets/img/avatar1.jpg'">
+                        <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}"
+                            onerror="this.src='/assets/img/avatar1.jpg'">
                     </div>
                 </div>
                 <div class="user-name">
                     <h6 class="user-title">
-                        <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                        <span class="text-capitalize">${userPo.username}</span>
                     </h6>
                     <div class="user-role">
                         Account Manager

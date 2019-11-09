@@ -20,11 +20,12 @@
           <li>
             <a href="#">
               <div class="user-avatar-w">
-                <img alt="" src="${profilePicUrl}" onerror="this.src='/assets/img/avatar1.jpg'">
+                <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}"
+                  onerror="this.src='/assets/img/avatar1.jpg'">
               </div>
               <div class="message-content">
                 <h6 class="message-from">
-                  <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                  <span class="text-capitalize">${userPo.username}</span>
                 </h6>
                 <h6 class="message-title">
                   Account Update
@@ -119,16 +120,18 @@
     <div class="logged-user-w">
       <div class="logged-user-i">
         <div class="avatar-w">
-          <img alt="" src="${profilePicUrl}" onerror="this.src='/assets/img/avatar1.jpg'">
+          <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}"
+            onerror="this.src='/assets/img/avatar1.jpg'">
         </div>
         <div class="logged-user-menu color-style-bright">
           <div class="logged-user-avatar-info">
             <div class="avatar-w">
-              <img alt="" src="${profilePicUrl}" onerror="this.src='/assets/img/avatar1.jpg'">
+              <img alt="" src="${userPo.userAdditionalInfoPo.profileImageLink}"
+                onerror="this.src='/assets/img/avatar1.jpg'">
             </div>
             <div class="logged-user-info-w">
               <div class="logged-user-name">
-                <span class="text-capitalize" sec:authentication="name">Anonymous</span>
+                <span class="text-capitalize">${userPo.username}</span>
               </div>
               <div class="logged-user-role">
                 Administrator
@@ -147,7 +150,8 @@
                   Details</span></a>
             </li>
             <li>
-              <a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a>
+              <a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing
+                  Details</span></a>
             </li>
             <li>
               <a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a>

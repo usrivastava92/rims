@@ -4,3 +4,4 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
+<sec:authentication var="userPo" property="principal"></sec:authentication>

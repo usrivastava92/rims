@@ -4,7 +4,7 @@
   xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <head>
-<c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
+  <c:import url="/WEB-INF/views/fragments/common-head.jsp"></c:import>
   <link href="/assets/icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
@@ -142,14 +142,14 @@
       <!--------------------
         START - Mobile Menu
         -------------------->
-        <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
+      <c:import url="/WEB-INF/views/fragments/mobile-menu.jsp"></c:import>
       <!--------------------
         END - Mobile Menu
         -------------------->
       <!--------------------
         START - Main Menu
         -------------------->
-<c:import url="/WEB-INF/views/fragments/side-menu.jsp"></c:import>
+      <c:import url="/WEB-INF/views/fragments/side-menu.jsp"></c:import>
       <!--------------------
         END - Main Menu
         -------------------->
@@ -157,7 +157,7 @@
         <!--------------------
           START - Top Bar
           -------------------->
-<c:import url="/WEB-INF/views/fragments/top-menu.jsp"></c:import>
+        <c:import url="/WEB-INF/views/fragments/top-menu.jsp"></c:import>
         <!--------------------
           END - Top Bar
           -------------------->
@@ -169,10 +169,7 @@
             <a href="index.html">Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="index.html">Products</a>
-          </li>
-          <li class="breadcrumb-item">
-            <span>Laptop with retina screen</span>
+            <a href="/vendors">Vendors</a>
           </li>
         </ul>
         <!--------------------
@@ -214,63 +211,35 @@
                       </tr>
                     </tfoot>
                     <tbody>
-                      <tr th:each="vendor,iter : ${vendors}">
-                        <td th:text="${iter.count}">1</td>
-                        <td><a th:text="${vendor.code}" th:href="@{'/vendors/get/'+${vendor.id}}">Edinburgh</a></td>
-                        <td th:text="${vendor.name}">Tiger</td>
-                        <td th:text="${vendor.gstNumber}">Nixon</td>
-                        <td th:text="${vendor.creationTimeStamp}">2019-10-05 15:32:27.395</td>
-                        <td th:text="${vendor.approvalStatus}">0</td>
-                        <td><a th:href="@{'/vendors/get/'+${vendor.id}}"><i data-placement="top" data-toggle="tooltip"
-                              title="Edit record" class="fa text--green fa-pencil-square fa-2x"></i></a>&nbsp;<a
-                            data-placement="top" data-toggle="tooltip" title="Mark for deletion"
-                            th:href="@{'/vendors/remove/'+${vendor.id}}"><i
-                              class="text--orange fa fa-times-circle fa-2x"></i></a>
-                        </td>
-                      </tr>
+                      <c:forEach var="vendor" items="${vendors}" varStatus="iter">
+                        <tr>
+                          <td>${iter.count}</td>
+                          <td><a href="/vendors/get/${vendor.id}">${vendor.code}</a></td>
+                          <td th:text="">${vendor.name}</td>
+                          <td th:text="">${vendor.gstNumber}</td>
+                          <td th:text="">${vendor.creationTimeStamp}</td>
+                          <td th:text="">${vendor.approvalStatus}</td>
+                          <td><a href="/vendors/get/${vendor.id}"><i data-placement="top" data-toggle="tooltip"
+                                title="Edit record" class="fa text--green fa-pencil-square fa-2x"></i></a>&nbsp;<a
+                              data-placement="top" data-toggle="tooltip" title="Mark for deletion"
+                              th:href="/vendors/remove/${vendor.id}"><i
+                                class="text--orange fa fa-times-circle fa-2x"></i></a>
+                          </td>
+                        </tr>
+                      </c:forEach>
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-<c:import url="/WEB-INF/views/fragments/overdraw-elements.jsp"></c:import>
+            <c:import url="/WEB-INF/views/fragments/overdraw-elements.jsp"></c:import>
           </div>
         </div>
       </div>
     </div>
     <div class="display-type"></div>
   </div>
-  <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/assets/bower_components/popper.js/dist/umd/popper.min.js"></script>
-  <script src="/assets/bower_components/moment/moment.js"></script>
-  <script src="/assets/bower_components/chart.js/dist/Chart.min.js"></script>
-  <script src="/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
-  <script src="/assets/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
-  <script src="/assets/bower_components/ckeditor/ckeditor.js"></script>
-  <script src="/assets/bower_components/bootstrap-validator/dist/validator.min.js"></script>
-  <script src="/assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script src="/assets/bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
-  <script src="/assets/bower_components/dropzone/dist/dropzone.js"></script>
-  <script src="/assets/bower_components/editable-table/mindmup-editabletable.js"></script>
-  <script src="/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-  <script src="/assets/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-  <script src="/assets/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-  <script src="/assets/bower_components/tether/dist/js/tether.min.js"></script>
-  <script src="/assets/bower_components/slick-carousel/slick/slick.min.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/util.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/alert.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/button.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/carousel.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/collapse.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/dropdown.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/modal.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/tab.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/tooltip.js"></script>
-  <script src="/assets/bower_components/bootstrap/js/dist/popover.js"></script>
-  <script src="/assets/js/dataTables.bootstrap4.min.js"></script>
-  <script src="/assets/js/demo_customizer.js?version=4.4.0"></script>
-  <script src="/assets/js/main.js?version=4.4.0"></script>
+  <c:import url="/WEB-INF/views/fragments/common-scripts.jsp"></c:import>
   <script>
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
