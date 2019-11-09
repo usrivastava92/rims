@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
+import com.app.logging.BaseLoggers;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -42,7 +42,7 @@ public class ProductController {
     @ResponseBody
     @SuppressWarnings("unchecked")
     public List<String> populateProductFilters(@RequestBody String requestJson) {
-        System.out.println("PRODUCTS CONTROLLER : applying filter -> " + requestJson);
+        BaseLoggers.flowLogger.info("applying filter -> " + requestJson);
         try {
             JSONObject jsonObject = new JSONObject(requestJson);
             String element = jsonObject.getString("element");
@@ -65,7 +65,7 @@ public class ProductController {
             }
             return (List<String>) baseServiceImpl.getListUsingHql(hqlQuery.toString());
         } catch (JSONException e) {
-            e.printStackTrace();
+            BaseLoggers.flowLogger.error("Exception in JsonParsing {}", e);
         }
         return null;
     }
@@ -75,7 +75,7 @@ public class ProductController {
     @ResponseBody
     @SuppressWarnings("unchecked")
     public List<ProductPo> getFilteredProducts(@RequestBody String requestJson) {
-        System.out.println("PRODUCTS CONTROLLER : fetching filtered products filter -> " + requestJson);
+        BaseLoggers.flowLogger.info("fetching filtered products filter -> " + requestJson);
         try {
             JSONObject filterJson = new JSONObject(requestJson);
             if (filterJson.length() > 0) {
@@ -102,14 +102,14 @@ public class ProductController {
             }
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            BaseLoggers.flowLogger.error("Exception in JsonParsing {}", e);
         }
         return null;
     }
 
     @GetMapping("/get/{id}")
     public ModelAndView getProduct(ModelAndView modelAndView, @PathVariable Long id) {
-        System.out.println("PRODUCTS CONTROLLER : fetching product with id -> " + id);
+        BaseLoggers.flowLogger.info("fetching product with id -> " + id);
         modelAndView.setViewName("masters/products/product");
         modelAndView.addObject("product", baseServiceImpl.getEntityByIdWithAllLazyObjects(ProductPo.class, id));
         return modelAndView;
@@ -118,7 +118,7 @@ public class ProductController {
     @GetMapping(value = "/get/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<ProductPo> getAllProduct() {
-        System.out.println("PRODUCTS CONTROLLER : fetching all products");
+        BaseLoggers.flowLogger.info("fetching all products");
         return baseServiceImpl.findAll(ProductPo.class);
     }
 

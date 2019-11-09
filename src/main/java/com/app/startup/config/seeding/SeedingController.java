@@ -19,7 +19,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Value;
-
+import com.app.logging.BaseLoggers;
 import com.app.hibernate.service.BaseService;
 
 @Named("seedingController")
@@ -42,7 +42,10 @@ public class SeedingController {
 
             DataFormatter dataFormatter = new DataFormatter();
 
-            System.out.println("SEEDING CONTROLLER : Beginning seeding operation : seed flag -> " + seedflag);
+            BaseLoggers.flowLogger.error("SEEDING CONTROLLER : Beginning seeding operation : seed flag -> " + seedflag);
+
+            String timestampFunctionInQuery = "systimestamp";
+            String dbTimestampFunction = "systimestamp";
 
             dialect = dialect.toUpperCase();
             String dbType = "NA";
@@ -54,11 +57,12 @@ public class SeedingController {
                 dbType = "H2";
             } else if (dialect.contains("MYSQL")) {
                 dbType = "MYSQL";
+                dbTimestampFunction = "CURRENT_TIMESTAMP";
             } else if (dialect.contains("MARIA")) {
                 dbType = "MARIA";
             }
 
-            System.out.println("SEEDING CONTROLLER : Found database as ->" + dbType);
+            BaseLoggers.flowLogger.error("SEEDING CONTROLLER : Found database as ->" + dbType);
 
             Workbook workbook = new HSSFWorkbook(
                     new FileInputStream(FileUtilites.getFileFromResources("SeedData.xls")));
@@ -90,7 +94,7 @@ public class SeedingController {
                 }
             }
 
-            System.out.println("SEEDING CONTROLLER : executing ->" + integrityDisableQuery);
+            BaseLoggers.flowLogger.error("SEEDING CONTROLLER : executing ->" + integrityDisableQuery);
             baseServiceImpl.executeQuery(integrityDisableQuery);
 
             while (sheetSeqIterator.hasNext()) {
@@ -104,8 +108,9 @@ public class SeedingController {
                         String query = br.readLine();
                         while (query != null) {
                             try {
-                                System.out.println("SEEDING CONTROLLER : executing ->" + query);
-                                baseServiceImpl.executeQuery(query.trim());
+                                BaseLoggers.flowLogger.error("SEEDING CONTROLLER : executing ->" + query);
+                                baseServiceImpl.executeQuery(
+                                        query.trim().replace(timestampFunctionInQuery, dbTimestampFunction));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -129,8 +134,9 @@ public class SeedingController {
                         String query = dataFormatter.formatCellValue(queryRow.getCell(0)).trim();
                         if (query != null && !"".equals(query)) {
                             try {
-                                System.out.println("SEEDING CONTROLLER : executing ->" + query);
-                                baseServiceImpl.executeQuery(query);
+                                BaseLoggers.flowLogger.error("SEEDING CONTROLLER : executing ->" + query);
+                                baseServiceImpl
+                                        .executeQuery(query.replace(timestampFunctionInQuery, dbTimestampFunction));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -141,7 +147,7 @@ public class SeedingController {
             }
 
             try {
-                System.out.println("SEEDING CONTROLLER : executing ->" + integrityEnableQuery);
+                BaseLoggers.flowLogger.error("SEEDING CONTROLLER : executing ->" + integrityEnableQuery);
                 baseServiceImpl.executeQuery(integrityEnableQuery);
             } catch (Exception e) {
                 e.printStackTrace();

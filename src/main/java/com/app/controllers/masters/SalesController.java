@@ -1,7 +1,7 @@
 package com.app.controllers.masters;
 
 import java.util.HashMap;
-
+import com.app.logging.BaseLoggers;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -25,7 +25,7 @@ public class SalesController {
 
 	@GetMapping()
 	public ModelAndView getAllSales(ModelAndView modelAndView) {
-		System.out.println("SALES CONTROLLER : fetching all sales ");
+		BaseLoggers.flowLogger.info("SALES CONTROLLER : fetching all sales ");
 		modelAndView.addObject("sales", baseServiceImpl.getEntityList(UserPo.class, new HashMap<>()));
 		modelAndView.setViewName("sales");
 		return modelAndView;
@@ -33,14 +33,14 @@ public class SalesController {
 
 	@GetMapping("/dashboard")
 	public ModelAndView goToSalesDashboard(ModelAndView modelAndView) {
-		System.out.println("SALES CONTROLLER : redirecting to sales dashboard");
+		BaseLoggers.flowLogger.info("SALES CONTROLLER : redirecting to sales dashboard");
 		modelAndView.setViewName("sales-dashboard");
 		return modelAndView;
 	}
 
 	@GetMapping("/get/{id}")
 	public ModelAndView getSale(ModelAndView modelAndView, @PathVariable Long id) {
-		System.out.println("SALES CONTROLLER : fetching with id -> " + id);
+		BaseLoggers.flowLogger.info("SALES CONTROLLER : fetching with id -> " + id);
 		modelAndView.addObject("sale", baseServiceImpl.getEntityById(RolePo.class, id));
 		modelAndView.setViewName("sale");
 		return modelAndView;

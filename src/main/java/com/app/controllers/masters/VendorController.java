@@ -1,7 +1,7 @@
 package com.app.controllers.masters;
 
 import java.util.HashMap;
-
+import com.app.logging.BaseLoggers;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -24,7 +24,7 @@ public class VendorController {
 
 	@GetMapping()
 	public ModelAndView getAllVendors(ModelAndView modelAndView) {
-		System.out.println("VENDORS CONTROLLER : fetching all vendors ");
+		BaseLoggers.flowLogger.info("VENDORS CONTROLLER : fetching all vendors ");
 		modelAndView.addObject("vendors", baseServiceImpl.getEntityList(VendorPo.class, new HashMap<>()));
 		modelAndView.setViewName("masters/vendors/vendors");
 		return modelAndView;
@@ -32,7 +32,7 @@ public class VendorController {
 
 	@GetMapping("/get/{id}")
 	public ModelAndView getUser(ModelAndView modelAndView, @PathVariable Long id) {
-		System.out.println("VENDORS CONTROLLER : fetching vendor with id -> " + id);
+		BaseLoggers.flowLogger.info("VENDORS CONTROLLER : fetching vendor with id -> " + id);
 		modelAndView.addObject("vendor", baseServiceImpl.getEntityById(VendorPo.class, id));
 		modelAndView.setViewName("masters/vendors/vendor");
 		return modelAndView;

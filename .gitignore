@@ -5,3 +5,5 @@
 target
 .classpath/
 .git/*
+.classpath
+rims.code-workspace

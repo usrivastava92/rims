@@ -9,6 +9,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 public class RimsWebapp extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
+
         SpringApplication.run(RimsWebapp.class, args);
 
     }

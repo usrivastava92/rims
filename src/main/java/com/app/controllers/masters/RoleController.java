@@ -1,7 +1,7 @@
 package com.app.controllers.masters;
 
 import java.util.HashMap;
-
+import com.app.logging.BaseLoggers;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -24,7 +24,7 @@ public class RoleController {
 
 	@GetMapping()
 	public ModelAndView getAllRoles(ModelAndView modelAndView) {
-		System.out.println("ROLE CONTROLLER : fetching all roles ");
+		BaseLoggers.flowLogger.info("ROLE CONTROLLER : fetching all roles ");
 		modelAndView.addObject("roles", baseServiceImpl.getEntityList(RolePo.class, new HashMap<>()));
 		modelAndView.setViewName("masters/roles/roles");
 		return modelAndView;
@@ -32,7 +32,7 @@ public class RoleController {
 
 	@GetMapping("/get/{id}")
 	public ModelAndView getRole(ModelAndView modelAndView, @PathVariable Long id) {
-		System.out.println("ROLE CONTROLLER : fetching user with id -> " + id);
+		BaseLoggers.flowLogger.info("ROLE CONTROLLER : fetching user with id -> " + id);
 		modelAndView.addObject("role", baseServiceImpl.getEntityById(RolePo.class, id));
 		modelAndView.setViewName("masters/roles/role");
 		return modelAndView;

@@ -1,7 +1,7 @@
 package com.app.controllers.masters;
 
 import java.util.HashMap;
-
+import com.app.logging.BaseLoggers;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -24,7 +24,7 @@ public class AuthorityController {
 
 	@GetMapping()
 	public ModelAndView getAllAuthorities(ModelAndView modelAndView) {
-		System.out.println("AUTHORITY CONTROLLER : fetching all roles ");
+		BaseLoggers.flowLogger.info("AUTHORITY CONTROLLER : fetching all roles ");
 		modelAndView.addObject("authorities", baseServiceImpl.getEntityList(AuthorityPo.class, new HashMap<>()));
 		modelAndView.setViewName("masters/authorities/authorities");
 		return modelAndView;
@@ -32,7 +32,7 @@ public class AuthorityController {
 
 	@GetMapping("/get/{id}")
 	public ModelAndView getAllAuthority(ModelAndView modelAndView, @PathVariable Long id) {
-		System.out.println("AUTHORITY CONTROLLER : fetching user with id -> " + id);
+		BaseLoggers.flowLogger.info("AUTHORITY CONTROLLER : fetching user with id -> " + id);
 		modelAndView.addObject("authority", baseServiceImpl.getEntityById(AuthorityPo.class, id));
 		modelAndView.setViewName("masters/authorities/authority");
 		return modelAndView;

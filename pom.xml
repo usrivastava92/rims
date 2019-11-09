@@ -156,10 +156,23 @@
 		</dependency>
 		<!-- DATABASE DEPENDENCIES END -->
 
+		<!--
+		<dependency>
+			<groupId>com.app</groupId>
+			<artifactId>rims-core</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.app</groupId>
+			<artifactId>rims-utils</artifactId>
+			<version>1.0</version>
+		</dependency>
+		-->
+
 		<dependency>
 			<groupId>com.github.usrivastava92</groupId>
 			<artifactId>RimsCore</artifactId>
-			<version>c74662429e89214d63fccca230c04867558c07e1</version>
+			<version>b60e4b0a8048c337564a8910259b5e79f08ecbd9</version>
 		</dependency>
 
 		<dependency>

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
+import com.app.logging.BaseLoggers;
 import com.app.hibernate.entity.masters.UserPo;
 
 @Controller
@@ -30,7 +30,7 @@ public class AuthenticationController {
 	@PostMapping({ "/login" })
 	@ResponseBody
 	public boolean login(@RequestParam("username") String username, @RequestParam("password") String password) {
-		System.out.println("Login attempt by : " + username);
+		BaseLoggers.flowLogger.info("Login attempt by : " + username);
 		UserPo userPo = new UserPo();
 		userPo.setUsername(username);
 		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(

@@ -2,7 +2,7 @@ package com.app.controllers.core;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
-
+import com.app.logging.BaseLoggers;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class CustomErrorController implements ErrorController {
 
 		if (status != null) {
 			Integer statusCode = Integer.valueOf(status.toString());
-			System.out.println("Error Controller : status code -> " + statusCode);
+			BaseLoggers.flowLogger.info("Error Controller : status code -> " + statusCode);
 			if (statusCode == HttpStatus.NOT_FOUND.value()) {
 				return "misc_error_404";
 			} else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {

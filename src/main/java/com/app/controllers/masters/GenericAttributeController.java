@@ -2,7 +2,7 @@ package com.app.controllers.masters;
 
 import java.util.HashMap;
 import java.util.List;
-
+import com.app.logging.BaseLoggers;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -34,13 +34,13 @@ public class GenericAttributeController {
 	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<GenericAttributePo> getAllGenericAttributes() {
-		System.out.println("GENERIC ATTRIBUTE CONTROLLER : fetching all generic attributes ");
+		BaseLoggers.flowLogger.info("GENERIC ATTRIBUTE CONTROLLER : fetching all generic attributes ");
 		return baseServiceImpl.getEntityList(GenericAttributePo.class, new HashMap<>());
 	}
 
 	@GetMapping("/get/{id}")
 	public ModelAndView getUser(ModelAndView modelAndView, @PathVariable Long id) {
-		System.out.println("GENERIC ATTRIBUTE CONTROLLER : fetching generic attribute with id -> " + id);
+		BaseLoggers.flowLogger.info("GENERIC ATTRIBUTE CONTROLLER : fetching generic attribute with id -> " + id);
 		modelAndView.addObject("genericAttribute", baseServiceImpl.getEntityById(GenericAttributePo.class, id));
 		modelAndView.setViewName("masters/generic-attributes/genericAttribute");
 		return modelAndView;
