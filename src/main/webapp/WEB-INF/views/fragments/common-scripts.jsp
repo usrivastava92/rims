@@ -2,17 +2,17 @@
 <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/assets/bower_components/popper-js/dist/umd/popper.min.js"></script>
 <script src="/assets/bower_components/moment/moment.js"></script>
-<script src="/assets/bower_components/chart-js/dist/Chart.min.js"></script>
+<script src="/assets/bower_components/chart-js/dist/chart-min.js"></script>
 <script src="/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <script src="/assets/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
 <script src="/assets/bower_components/ckeditor/ckeditor.js"></script>
 <script src="/assets/bower_components/bootstrap-validator/dist/validator.min.js"></script>
 <script src="/assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="/assets/bower_components/ion-rangeslider/js/ion-rangeslider.min.js"></script>
+<script src="/assets/bower_components/ion-rangeslider/js/ion-rangeslider-min.js"></script>
 <script src="/assets/bower_components/dropzone/dist/dropzone.js"></script>
 <script src="/assets/bower_components/editable-table/mindmup-editabletable.js"></script>
-<script src="/assets/bower_components/datatables-net/js/jquery.dataTables.min.js"></script>
-<script src="/assets/bower_components/datatables-net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="/assets/bower_components/datatables-net/js/jquery-datatables-min.js"></script>
+<script src="/assets/bower_components/datatables-net-bs/js/datatables-bootstrap-min.js"></script>
 <script src="/assets/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <script src="/assets/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
 <script src="/assets/bower_components/tether/dist/js/tether.min.js"></script>
@@ -29,4 +29,4 @@
 <script src="/assets/bower_components/bootstrap/js/dist/popover.js"></script>
 <script src="/assets/js/demo_customizer.js?version=4.4.0"></script>
 <script src="/assets/js/main.js?version=4.4.0"></script>
-<script src="/assets/js/dataTables.bootstrap4.min.js"></script>
+<script src="/assets/js/datatables-bootstrap4-min.js"></script>
