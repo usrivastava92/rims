@@ -13,7 +13,7 @@
     <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" type="text/css">
     <link href="/assets/bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
-    <link href="/assets/bower_components/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="/assets/bower_components/ion-rangeslider/css/ion-rangeslider.css" rel="stylesheet">
     <link href="/assets/bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
     <link href="/assets/css/main.css?version=4.4.0" rel="stylesheet">
   </head>
@@ -886,19 +886,19 @@
     <div class="display-type"></div>
   </body>
   <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/assets/bower_components/popper.js/dist/umd/popper.min.js"></script>
+  <script src="/assets/bower_components/popper-js/dist/umd/popper.min.js"></script>
   <script src="/assets/bower_components/moment/moment.js"></script>
-  <script src="/assets/bower_components/chart.js/dist/Chart.min.js"></script>
+  <script src="/assets/bower_components/chart-js/dist/Chart.min.js"></script>
   <script src="/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
   <script src="/assets/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
   <script src="/assets/bower_components/ckeditor/ckeditor.js"></script>
   <script src="/assets/bower_components/bootstrap-validator/dist/validator.min.js"></script>
   <script src="/assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script src="/assets/bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+  <script src="/assets/bower_components/ion-rangeslider/js/ion-rangeslider.min.js"></script>
   <script src="/assets/bower_components/dropzone/dist/dropzone.js"></script>
   <script src="/assets/bower_components/editable-table/mindmup-editabletable.js"></script>
-  <script src="/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="/assets/bower_components/datatables-net/js/jquery.dataTables.min.js"></script>
+  <script src="/assets/bower_components/datatables-net-bs/js/dataTables.bootstrap.min.js"></script>
   <script src="/assets/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
   <script src="/assets/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
   <script src="/assets/bower_components/tether/dist/js/tether.min.js"></script>

@@ -187,7 +187,7 @@
                 <div class="form-desc">
                 </div>
                 <div class="table-responsive">
-                  <table id="usersTable" width="100%" class="table table-striped table-lightfont">
+                  <table id="dataTable1" width="100%" class="table table-striped table-lightfont">
                     <thead>
                       <tr>
                         <th>Sno.</th>

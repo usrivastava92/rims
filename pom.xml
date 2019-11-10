@@ -162,6 +162,8 @@
 			<artifactId>rims-core</artifactId>
 			<version>1.0</version>
 		</dependency>
+		-->
+		<!--
 		<dependency>
 			<groupId>com.app</groupId>
 			<artifactId>rims-utils</artifactId>
@@ -169,11 +171,13 @@
 		</dependency>
 		-->
 
+
 		<dependency>
 			<groupId>com.github.usrivastava92</groupId>
 			<artifactId>RimsCore</artifactId>
-			<version>b60e4b0a8048c337564a8910259b5e79f08ecbd9</version>
+			<version>d440b36569dc0614a8c7733fc18632a8534b72cb</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>com.github.usrivastava92</groupId>

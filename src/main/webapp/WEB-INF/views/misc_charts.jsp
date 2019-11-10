@@ -183,10 +183,10 @@
                     </h6>
                     <div class="element-box">
                       <h5 class="form-header">
-                        Powered by Chart.js
+                        Powered by chart-js
                       </h5>
                       <div class="form-desc">
-                        Simple yet flexible JavaScript charting for designers & developers. <a href="http://www.chartjs.org/" target="_blank">Learn More about Chart.js</a>
+                        Simple yet flexible JavaScript charting for designers & developers. <a href="http://www.chartjs.org/" target="_blank">Learn More about chart-js</a>
                       </div>
                       <div class="el-chart-w">
                         <canvas height="145" id="barChart1" width="300"></canvas>
@@ -519,7 +519,7 @@
                     Doughnut Chart
                   </h5>
                   <div class="form-desc">
-                    Pie and doughnut charts are probably the most commonly used charts there are. <a href="http://www.chartjs.org/" target="_blank">Learn More about Chart.js</a>
+                    Pie and doughnut charts are probably the most commonly used charts there are. <a href="http://www.chartjs.org/" target="_blank">Learn More about chart-js</a>
                   </div>
                   <div class="el-chart-w">
                     <canvas height="160" id="donutChart" width="160"></canvas>
@@ -555,7 +555,7 @@
                     Pie Chart
                   </h5>
                   <div class="form-desc">
-                    Pie and doughnut charts are probably the most commonly used charts there are. <a href="http://www.chartjs.org/" target="_blank">Learn More about Chart.js</a>
+                    Pie and doughnut charts are probably the most commonly used charts there are. <a href="http://www.chartjs.org/" target="_blank">Learn More about chart-js</a>
                   </div>
                   <div class="el-chart-w">
                     <canvas height="150px" id="pieChart1" width="150px"></canvas>
