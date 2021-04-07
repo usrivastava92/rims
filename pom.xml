@@ -1,275 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<modelVersion>4.0.0</modelVersion>
-	<packaging>war</packaging>
-	<version>0.1.0</version>
+  <groupId>com.rims</groupId>
+  <artifactId>rims-parent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
 
-	<groupId>com.app</groupId>
-	<artifactId>rims-webapp</artifactId>
+  <name>rims-parent</name>
 
-	<name>rims-webapp</name>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 
-	<properties>
-		<appengine.maven.plugin.version>2.1.0</appengine.maven.plugin.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
-		<spring.boot.version>2.1.8.RELEASE</spring.boot.version>
-		<!-- PROJECT RELATED PROPERTIES START -->
-		<apache.poi>3.17</apache.poi>
-		<apache.httpclient>4.3.6</apache.httpclient>
-		<apache.httpcore>4.3.3</apache.httpcore>
-		<tomcat.version>8.5.37</tomcat.version>
-		<!-- PROJECT RELATED PROPERTIES END -->
-	</properties>
+  <modules>
+    <module>./rims-core</module>
+    <module>./rims-utils</module>
+    <module>./rims-webapp</module>
+  </modules>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.8.RELEASE</version>
-		<relativePath />
-		<!-- lookup parent from repository -->
-	</parent>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${spring.boot.version}</version>
-			<!-- Exclude Tomcat so that it doesn't conflict w/ Jetty server <exclusions> <exclusion> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-tomcat</artifactId> </exclusion> </exclusions> -->
-		</dependency>
-
-		<!-- Exclude any jul-to-slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jul-to-slf4j</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- Include Servlet API -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>5.0.7.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- hot swapping, disable cache for template, enable live reload -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
-
-		<!-- PROJECT RELATED DEPENDENCIES START -->
-
-		<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20160807</version>
-		</dependency>
-
-		<!-- PROJECT RELATED DEPENDENCIES STOP -->
-
-		<!-- JAXB DEPENDENCIES START -->
-		<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.2.11</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-core</artifactId>
-			<version>2.2.11</version>
-		</dependency>
-		<!-- JAXB DEPENDENCIES STOP -->
-
-		<!-- DATABASE DEPENDENCIES START -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<!-- DATABASE DEPENDENCIES END -->
-
-		<!--
-		<dependency>
-			<groupId>com.app</groupId>
-			<artifactId>rims-core</artifactId>
-			<version>1.0</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>com.app</groupId>
-			<artifactId>rims-utils</artifactId>
-			<version>1.0</version>
-		</dependency>
-		-->
-
-
-		<dependency>
-			<groupId>com.github.usrivastava92</groupId>
-			<artifactId>RimsCore</artifactId>
-			<version>d440b36569dc0614a8c7733fc18632a8534b72cb</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.github.usrivastava92</groupId>
-			<artifactId>RimsUtils</artifactId>
-			<version>506944a64f6c49a3474dcf69e51633c1623f3700</version>
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>${apache.poi}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>${apache.poi}</version>
-		</dependency>
-
-	</dependencies>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring.boot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-		</dependencies>
-	</dependencyManagement>
-
-	<build>
-		<!-- for hot reload of the web application -->
-		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
-		<plugins>
-
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring.boot.version}</version>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<!--<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.4</version>
-				<executions>
-					<execution>
-						<phase>compile</phase>
-						<goals>
-							<goal>display-dependency-updates</goal>
-							<goal>display-plugin-updates</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<excludes>
-						<exclude>javax.servlet:javax.servlet-api</exclude>
-						<exclude>com.google.guava:guava</exclude>
-			</excludes>
-			</configuration>
-			</plugin>
-			-->
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.1.0</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
-
-	<repositories>
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+  <build>
+    <pluginManagement>
+      <plugins></plugins>
+    </pluginManagement>
+  </build>
 </project>
