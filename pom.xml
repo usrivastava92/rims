@@ -5,10 +5,10 @@
 	<packaging>war</packaging>
 	<version>0.1.0-SNAPSHOT</version>
 
-	<groupId>com.app</groupId>
-	<artifactId>app</artifactId>
+	<groupId>com.rims</groupId>
+	<artifactId>rims-webapp</artifactId>
 
-	<name>InventorySystem-Webapp</name>
+	<name>Rims-Webapp</name>
 
 	<properties>
 		<appengine.maven.plugin.version>2.1.0</appengine.maven.plugin.version>
