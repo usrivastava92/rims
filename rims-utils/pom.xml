@@ -15,7 +15,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <apache.poi>5.2.2</apache.poi>
     <com.fasterxml.jackson.datatype>2.13.2</com.fasterxml.jackson.datatype>
-    <joda.time>1.6.2</joda.time>
+    <joda.time>2.10.14</joda.time>
   </properties>
 
   <dependencies>
