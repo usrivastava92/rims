@@ -18,7 +18,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
-		<spring.boot.version>2.5.12</spring.boot.version>
+		<spring.boot.version>2.6.6</spring.boot.version>
 		<!-- PROJECT RELATED PROPERTIES START -->
 		<apache.poi>3.17</apache.poi>
 		<apache.httpclient>4.3.6</apache.httpclient>
@@ -30,7 +30,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.8.RELEASE</version>
+		<version>2.6.6</version>
 		<relativePath />
 		<!-- lookup parent from repository -->
 	</parent>
