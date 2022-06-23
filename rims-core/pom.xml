@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>2.7.0</spring.boot.version>
+        <spring.boot.version>2.7.1</spring.boot.version>
         <apache.poi>3.17</apache.poi>
         <apache.httpclient>4.3.6</apache.httpclient>
         <apache.httpcore>4.3.3</apache.httpcore>
@@ -25,7 +25,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.0</version>
+        <version>2.7.1</version>
     </parent>
 
     <dependencies>
