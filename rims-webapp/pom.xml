@@ -20,7 +20,7 @@
 		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
 		<spring.boot.version>2.7.3</spring.boot.version>
 		<!-- PROJECT RELATED PROPERTIES START -->
-		<apache.poi>5.2.2</apache.poi>
+		<apache.poi>5.2.3</apache.poi>
 		<apache.httpclient>4.3.6</apache.httpclient>
 		<apache.httpcore>4.3.3</apache.httpcore>
 		<tomcat.version>8.5.37</tomcat.version>
