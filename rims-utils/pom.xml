@@ -13,7 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <apache.poi>5.2.3</apache.poi>
+    <apache.poi>5.2.4</apache.poi>
     <com.fasterxml.jackson.datatype>2.15.2</com.fasterxml.jackson.datatype>
     <joda.time>2.12.5</joda.time>
   </properties>
