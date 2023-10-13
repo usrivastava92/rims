@@ -17,7 +17,7 @@
         <apache.poi>3.17</apache.poi>
         <apache.httpclient>4.3.6</apache.httpclient>
         <apache.httpcore>4.3.3</apache.httpcore>
-        <com.fasterxml.jackson.datatype>2.15.2</com.fasterxml.jackson.datatype>
+        <com.fasterxml.jackson.datatype>2.15.3</com.fasterxml.jackson.datatype>
         <joda.time>2.12.5</joda.time>
         <apache.poi>3.17</apache.poi>
     </properties>
