@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>3.2.4</spring.boot.version>
+        <spring.boot.version>3.2.5</spring.boot.version>
         <apache.poi>3.17</apache.poi>
         <apache.httpclient>4.3.6</apache.httpclient>
         <apache.httpcore>4.3.3</apache.httpcore>
