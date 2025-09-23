@@ -125,14 +125,14 @@
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>4.0.5</version>
+			<version>4.0.6</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-core</artifactId>
-			<version>4.0.5</version>
+			<version>4.0.6</version>
 		</dependency>
 		<!-- JAXB DEPENDENCIES STOP -->
 
